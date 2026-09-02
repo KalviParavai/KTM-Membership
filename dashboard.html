@@ -2188,7 +2188,72 @@ function(event){
 
 };
 
+/* =========================================
+   ALLOW ONLY ONE SEARCH TYPE
+========================================= */
 
+document.getElementById("reg")
+.addEventListener(
+    "input",
+    function(){
+
+        if(this.value.trim()){
+
+            document
+            .getElementById("name")
+            .value = "";
+
+            document
+            .getElementById("mobile")
+            .value = "";
+
+        }
+
+    }
+);
+
+
+document.getElementById("name")
+.addEventListener(
+    "input",
+    function(){
+
+        if(this.value.trim()){
+
+            document
+            .getElementById("reg")
+            .value = "";
+
+            document
+            .getElementById("mobile")
+            .value = "";
+
+        }
+
+    }
+);
+
+
+document.getElementById("mobile")
+.addEventListener(
+    "input",
+    function(){
+
+        if(this.value.trim()){
+
+            document
+            .getElementById("reg")
+            .value = "";
+
+            document
+            .getElementById("name")
+            .value = "";
+
+        }
+
+    }
+);
+      
 /* =========================================
    ENTER KEY SEARCH
 ========================================= */
