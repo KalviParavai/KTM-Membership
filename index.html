@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு, திருநெல்வேலி</title>
+
+<style>
+
+/* =========================================
+   GLOBAL SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "Noto Sans Tamil", sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #741b17, #350707 65%, #210303);
+    color: #ffffff;
+}
+
+
+/* =========================================
+   TOP HERO IMAGE
+========================================= */
+
+.hero-banner {
+    width: 100%;
+    background: #2a0503;
+    position: relative;
+    border-bottom: 3px solid #dca62a;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Dark overlay for better visual blending */
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05),
+            rgba(55,0,0,0.15)
+        );
+}
+
+
+/* =========================================
+   MAIN CONTENT AREA
+========================================= */
+
+.main-section {
+    position: relative;
+    min-height: 600px;
+
+    padding: 70px 20px 90px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130,30,20,0.45),
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            #5b0b0b,
+            #350505 80%
+        );
+
+    text-align: center;
+
+    border-top: 3px solid #dca62a;
+}
+
+
+/* =========================================
+   DECORATIVE GOLD LINE
+========================================= */
+
+.gold-line {
+    width: 230px;
+    height: 2px;
+
+    margin: 15px auto 25px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #f6c94c,
+            #fff0a3,
+            #f6c94c,
+            transparent
+        );
+
+    position: relative;
+}
+
+.gold-line::before {
+    content: "✦";
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -55%);
+
+    color: #ffd966;
+    background: #5b0b0b;
+
+    padding: 0 12px;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   TEMPLE ICON
+========================================= */
+
+.temple-icon {
+
+    width: 75px;
+    height: 75px;
+
+    margin: -40px auto 20px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(145deg, #7d1b12, #3d0505);
+
+    border: 2px solid #e7b83c;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    color: #ffd76b;
+
+    position: relative;
+
+    z-index: 5;
+
+    box-shadow:
+        0 0 20px rgba(255,190,50,0.4);
+}
+
+
+/* =========================================
+   TAMIL TITLE
+========================================= */
+
+h1 {
+
+    font-size: clamp(28px, 4vw, 52px);
+
+    line-height: 1.35;
+
+    color: #ffd061;
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 4px #2b0000,
+        0 0 15px rgba(255,190,50,0.25);
+}
+
+
+/* =========================================
+   SUB TITLE
+========================================= */
+
+.subtitle {
+
+    margin-top: 15px;
+
+    color: #f5dba0;
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    margin: 45px auto 0;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(90,10,10,0.9),
+            rgba(45,3,3,0.95)
+        );
+
+    border: 2px solid #d9a82c;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.45),
+        inset 0 0 30px rgba(255,180,30,0.05);
+}
+
+
+/* =========================================
+   INPUT ROW
+========================================= */
+
+.input-row {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+
+/* ICON */
+
+.icon-box {
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    margin-right: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    color: #ffd061;
+
+    border: 1px solid #b77821;
+
+    background:
+        linear-gradient(
+            145deg,
+            #7b1d12,
+            #3e0605
+        );
+}
+
+
+/* INPUT */
+
+.input-row input {
+
+    width: 100%;
+
+    height: 58px;
+
+    padding: 0 20px;
+
+    font-size: 17px;
+
+    color: white;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(225,170,60,0.55);
+
+    background:
+        rgba(50,5,5,0.65);
+}
+
+
+.input-row input::placeholder {
+
+    color: #d7b8b8;
+}
+
+
+/* INPUT FOCUS */
+
+.input-row input:focus {
+
+    border-color: #ffd061;
+
+    box-shadow:
+        0 0 10px rgba(255,200,70,0.3);
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-button {
+
+    width: 100%;
+
+    height: 62px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #4b1206;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd96c,
+            #f3a51c
+        );
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.35);
+
+    transition: 0.3s;
+}
+
+
+.login-button:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe597,
+            #f6b431
+        );
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.45);
+}
+
+
+.login-button:active {
+
+    transform: translateY(1px);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    margin-top: 40px;
+
+    color: rgba(255,220,160,0.65);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .hero-banner {
+        height: 250px;
+    }
+
+    .main-section {
+        padding: 55px 15px 70px;
+    }
+
+    .login-card {
+        padding: 22px 16px;
+    }
+
+    .input-row input {
+        font-size: 16px;
+    }
+
+    .icon-box {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .input-row input {
+        height: 52px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HERO BANNER
+===================================== -->
+
+<section class="hero-banner">
+
+    <img
+        src="god-heroimage.png"
+        alt="Temple Deities"
+    >
+
+</section>
+
+
+
+<!-- =====================================
+     MAIN SECTION
+===================================== -->
+
+<section class="main-section">
+
+
+    <!-- TEMPLE SYMBOL -->
+
+    <div class="temple-icon">
+        🛕
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1>
+        கரந்தாநேரி திருக்கோவில்கள்<br>
+        பராமரிப்புக் குழு, திருநெல்வேலி.
+    </h1>
+
+
+    <!-- DECORATIVE LINE -->
+
+    <div class="gold-line"></div>
+
+
+    <!-- OPTIONAL ENGLISH SUBTITLE -->
+
+    <div class="subtitle">
+        Karanthaneri Temples &amp; Maintenance Trust (KTM)
+    </div>
+
+
+    <!-- LOGIN CARD -->
+
+    <div class="login-card">
+
+
+        <!-- USERNAME -->
+
+        <div class="input-row">
+
+            <div class="icon-box">
+                👤
+            </div>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+            >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="input-row">
+
+            <div class="icon-box">
+                🔒
+            </div>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+        </div>
+
+
+        <!-- LOGIN BUTTON -->
+
+        <button
+            class="login-button"
+            onclick="login()"
+        >
+            LOGIN
+        </button>
+
+
+    </div>
+
+
+    <div class="gold-line"></div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        © KTM Portal
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     SIMPLE LOGIN SCRIPT
+===================================== -->
+
+<script>
+
+function login() {
+
+    const username =
+        document.getElementById("username").value;
+
+    const password =
+        document.getElementById("password").value;
+
+
+    if (username === "" || password === "") {
+
+        alert("Please enter Username and Password.");
+
+        return;
+    }
+
+
+    /*
+       Later you can connect this
+       to your PHP / Python / Database
+       authentication system.
+    */
+
+    alert(
+        "Login request submitted."
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
