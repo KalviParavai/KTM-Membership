@@ -740,34 +740,182 @@ body {
      SIMPLE LOGIN SCRIPT
 ===================================== -->
 
+<!-- =====================================
+     LOGIN SCRIPT
+===================================== -->
+
 <script>
+
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbxAtWy9LybpBEN-DYA5veu-0w7vI_VFjJuz2nIhB0uNN-inTuutxUbefByP4DNkFibJLw/exec";
+
 
 function login() {
 
     const username =
-        document.getElementById("username").value;
+        document
+            .getElementById("username")
+            .value
+            .trim();
+
 
     const password =
-        document.getElementById("password").value;
+        document
+            .getElementById("password")
+            .value
+            .trim();
 
 
-    if (username === "" || password === "") {
+    // =====================================
+    // CHECK EMPTY FIELDS
+    // =====================================
 
-        alert("Please enter Username and Password.");
+    if (
+        username === "" ||
+        password === ""
+    ) {
+
+        alert(
+            "Please enter Username and Password."
+        );
 
         return;
+
     }
 
 
-    /*
-       Later you can connect this
-       to your PHP / Python / Database
-       authentication system.
-    */
+    // =====================================
+    // CREATE UNIQUE JSONP CALLBACK NAME
+    // =====================================
 
-    alert(
-        "Login request submitted."
-    );
+    const callbackName =
+        "loginCallback_" +
+        Date.now();
+
+
+    // =====================================
+    // CREATE CALLBACK FUNCTION
+    // =====================================
+
+    window[callbackName] =
+        function(result) {
+
+            // Remove temporary script
+
+            const oldScript =
+                document.getElementById(
+                    callbackName
+                );
+
+            if (oldScript) {
+
+                oldScript.remove();
+
+            }
+
+
+            // Remove callback function
+
+            delete window[
+                callbackName
+            ];
+
+
+            // =====================================
+            // SUCCESSFUL LOGIN
+            // =====================================
+
+            if (
+                result.success === true
+            ) {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }
+
+
+            // =====================================
+            // INVALID LOGIN
+            // =====================================
+
+            else {
+
+                alert(
+                    result.message ||
+                    "Invalid Username or Password."
+                );
+
+            }
+
+        };
+
+
+    // =====================================
+    // CREATE JSONP SCRIPT REQUEST
+    // =====================================
+
+    const script =
+        document.createElement(
+            "script"
+        );
+
+
+    script.id =
+        callbackName;
+
+
+    script.src =
+        API_URL +
+
+        "?action=login" +
+
+        "&username=" +
+
+        encodeURIComponent(
+            username
+        ) +
+
+        "&password=" +
+
+        encodeURIComponent(
+            password
+        ) +
+
+        "&callback=" +
+
+        callbackName;
+
+
+    // =====================================
+    // NETWORK ERROR
+    // =====================================
+
+    script.onerror =
+        function() {
+
+            alert(
+                "Unable to connect to the Login Server. Please try again."
+            );
+
+            script.remove();
+
+            delete window[
+                callbackName
+            ];
+
+        };
+
+
+    // =====================================
+    // SEND REQUEST
+    // =====================================
+
+    document
+        .body
+        .appendChild(
+            script
+        );
 
 }
 
