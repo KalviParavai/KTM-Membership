@@ -1,30 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு, திருநெல்வேலி
-</title>
-
-
-<!-- =========================================
-     GOOGLE FONT
-========================================= -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
-
+<title>கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு, திருநெல்வேலி</title>
 
 <style>
 
@@ -38,73 +20,89 @@
     box-sizing: border-box;
 }
 
-
-html {
-    scroll-behavior: smooth;
-}
-
-
 body {
+    font-family: Arial, "Noto Sans Tamil", sans-serif;
+    min-height: 100vh;
 
-    font-family:
-        "Poppins",
-        "Noto Sans Tamil",
-        Arial,
-        sans-serif;
+    background:
+        radial-gradient(circle at top, #741b17, #350707 65%, #210303);
 
-    background: #f5f3ef;
-
-    color: #333;
-
+    color: #ffffff;
 }
 
 
 /* =========================================
-   HERO SECTION
+   TOP HEADER
 ========================================= */
 
-.hero {
+.top-header {
+
+    width: 74%;
+    max-width: 1435px;
+
+    margin: 5px auto 0;
+
+    padding: 18px 35px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    color: #4b2615;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.top-header h2 {
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+
+.top-header p {
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #80572d;
+}
+
+
+/* =========================================
+   TOP HERO IMAGE
+========================================= */
+
+.hero-banner {
 
     width: 100%;
-
-    min-height: 600px;
 
     position: relative;
 
     overflow: hidden;
 
-    background: #2a1205;
+    border-top: 3px solid #dca62a;
+    border-bottom: 3px solid #dca62a;
 
+    background: #2a0503;
 }
 
 
-/* =========================================
-   HERO BACKGROUND IMAGE
-========================================= */
-
-.hero-image {
-
-    position: absolute;
-
-    inset: 0;
+.hero-banner img {
 
     width: 100%;
-    height: 100%;
 
-}
-
-
-.hero-image img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: center;
+    height: auto;
 
     display: block;
-
 }
 
 
@@ -112,7 +110,7 @@ body {
    DARK OVERLAY
 ========================================= */
 
-.hero::before {
+.hero-banner::after {
 
     content: "";
 
@@ -120,440 +118,203 @@ body {
 
     inset: 0;
 
-    z-index: 1;
-
     background:
-
         linear-gradient(
-            90deg,
-
-            rgba(20, 10, 5, 0.78) 0%,
-
-            rgba(30, 12, 5, 0.50) 35%,
-
-            rgba(20, 10, 5, 0.10) 70%,
-
-            rgba(10, 5, 0, 0.20) 100%
+            to bottom,
+            rgba(0,0,0,0.05) 40%,
+            rgba(0,0,0,0.15) 65%,
+            rgba(20,0,0,0.75) 100%
         );
 
+    pointer-events: none;
 }
 
 
 /* =========================================
-   TOP NAVIGATION
+   BANNER TITLE
+   POSITIONED AT BOTTOM OF IMAGE
 ========================================= */
 
-.navbar {
+.banner-title {
 
     position: absolute;
 
-    z-index: 10;
+    left: 0;
 
-    top: 25px;
+    bottom: 0;
 
-    left: 50%;
+    width: 100%;
 
-    transform: translateX(-50%);
-
-    width: min(1150px, 92%);
-
-    min-height: 70px;
-
-    padding: 12px 30px;
-
-    background:
-        rgba(255,255,255,0.96);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,0.22);
-
-}
-
-
-/* =========================================
-   LOGO
-========================================= */
-
-.logo {
-
-    display: flex;
-
-    flex-direction: column;
-
-    line-height: 1.15;
-
-    color: #4d1c0b;
-
-}
-
-
-.logo-main {
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-}
-
-
-.logo-sub {
-
-    margin-top: 3px;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: #9a6a32;
-
-}
-
-
-/* =========================================
-   NAVIGATION MENU
-========================================= */
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-}
-
-
-.nav-links a {
-
-    text-decoration: none;
-
-    color: #333;
-
-    font-size: 13px;
-
-    font-weight: 500;
-
-    transition: 0.25s;
-
-}
-
-
-.nav-links a:hover {
-
-    color: #b56b10;
-
-}
-
-
-/* =========================================
-   HERO CONTENT
-========================================= */
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 3;
-
-    min-height: 600px;
-
-    width: min(1200px, 90%);
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-}
-
-
-.hero-text {
-
-    max-width: 570px;
-
-    margin-top: 80px;
-
-    color: white;
-
-}
-
-
-.hero-small-title {
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    color: #f6ca72;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* =========================================
-   MAIN HERO TITLE
-========================================= */
-
-.hero-text h1 {
-
-    font-family:
-        "Noto Sans Tamil",
-        "Poppins",
-        sans-serif;
-
-    font-size:
-        clamp(30px, 4vw, 55px);
-
-    line-height: 1.35;
-
-    font-weight: 700;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 3px 10px rgba(0,0,0,0.7);
-
-}
-
-
-/* =========================================
-   HERO DESCRIPTION
-========================================= */
-
-.hero-text p {
-
-    margin-top: 20px;
-
-    max-width: 500px;
-
-    color: rgba(255,255,255,0.90);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================================
-   HERO BUTTON
-========================================= */
-
-.hero-button {
-
-    margin-top: 28px;
-
-    padding: 14px 32px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    cursor: pointer;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #f7c866,
-            #d98b16
-        );
-
-    color: #4a2107;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    font-family: inherit;
-
-    transition: 0.3s;
-
-    box-shadow:
-        0 7px 20px rgba(0,0,0,0.30);
-
-}
-
-
-.hero-button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.40);
-
-}
-
-
-/* =========================================
-   INFORMATION SECTION
-========================================= */
-
-.info-section {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    background: white;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.10);
-
-}
-
-
-/* =========================================
-   INFORMATION CARD
-========================================= */
-
-.info-card {
-
-    padding: 50px 40px;
-
-    min-height: 250px;
-
-    border-right:
-        1px solid #ececec;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-}
-
-
-.info-card:last-child {
-
-    border-right: none;
-
-}
-
-
-.info-card h3 {
-
-    font-size: 21px;
-
-    font-weight: 600;
-
-    color: #4a1b0c;
-
-    margin-bottom: 15px;
-
-}
-
-
-.info-card p {
-
-    font-size: 13px;
-
-    color: #777;
-
-    line-height: 1.8;
-
-}
-
-
-.info-card button {
-
-    width: fit-content;
-
-    margin-top: 25px;
-
-    padding: 10px 25px;
-
-    border: none;
-
-    border-radius: 25px;
-
-    cursor: pointer;
-
-    background:
-        linear-gradient(
-            180deg,
-            #f7c866,
-            #d98b16
-        );
-
-    color: #4d2409;
-
-    font-family: inherit;
-
-    font-weight: 600;
-
-}
-
-
-/* =========================================
-   LOGIN SECTION
-========================================= */
-
-.login-section {
-
-    padding: 90px 20px;
+    padding: 22px 30px 28px;
 
     text-align: center;
 
+    z-index: 5;
+
     background:
-
         linear-gradient(
-            135deg,
-            #f7f4ef,
-            #eee8df
+            to top,
+            rgba(20,0,0,0.85),
+            rgba(20,0,0,0.45),
+            transparent
         );
+}
 
+
+.banner-title h1 {
+
+    width: 100%;
+
+    font-size: clamp(26px, 3vw, 58px);
+
+    font-weight: bold;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 3px 8px #000000,
+        0 0 18px rgba(255,190,50,0.35);
+
+    letter-spacing: 1px;
 }
 
 
 /* =========================================
-   SECTION TITLE
+   MAIN CONTENT AREA
 ========================================= */
 
-.section-title {
+.main-section {
 
-    color: #4a1b0c;
+    position: relative;
 
-    font-size:
-        clamp(28px, 3vw, 40px);
+    min-height: 600px;
 
-    font-family:
-        "Noto Sans Tamil",
-        "Poppins",
-        sans-serif;
+    padding: 70px 20px 90px;
 
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(130,30,20,0.45),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            180deg,
+            #5b0b0b,
+            #350505 80%
+        );
+
+    text-align: center;
+
+    border-top: 3px solid #dca62a;
 }
 
 
-.section-subtitle {
+/* =========================================
+   DECORATIVE GOLD LINE
+========================================= */
 
-    margin-top: 12px;
+.gold-line {
 
-    color: #888;
+    width: 230px;
 
-    font-size: 14px;
+    height: 2px;
 
+    margin: 15px auto 25px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            #f6c94c,
+            #fff0a3,
+            #f6c94c,
+            transparent
+        );
+
+    position: relative;
+}
+
+
+.gold-line::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -55%);
+
+    color: #ffd966;
+
+    background: #5b0b0b;
+
+    padding: 0 12px;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   TEMPLE ICON
+========================================= */
+
+.temple-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: -40px auto 20px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(145deg, #7d1b12, #3d0505);
+
+    border: 2px solid #e7b83c;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+
+    color: #ffd76b;
+
+    position: relative;
+
+    z-index: 5;
+
+    box-shadow:
+        0 0 20px rgba(255,190,50,0.4);
+}
+
+
+/* =========================================
+   SUB TITLE
+========================================= */
+
+.subtitle {
+
+    margin-top: 15px;
+
+    color: #f5dba0;
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.9;
 }
 
 
@@ -565,36 +326,27 @@ body {
 
     width: 100%;
 
-    max-width: 500px;
+    max-width: 560px;
 
     margin: 45px auto 0;
 
-    padding: 45px;
+    padding: 30px;
 
-    text-align: left;
+    background:
 
-    background: #ffffff;
+        linear-gradient(
+            145deg,
+            rgba(90,10,10,0.9),
+            rgba(45,3,3,0.95)
+        );
+
+    border: 2px solid #d9a82c;
+
+    border-radius: 18px;
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,0.12);
-
-}
-
-
-/* =========================================
-   LOGIN CARD TITLE
-========================================= */
-
-.login-card-title {
-
-    text-align: center;
-
-    font-size: 22px;
-
-    color: #4a1b0c;
-
-    margin-bottom: 30px;
-
+        0 15px 40px rgba(0,0,0,0.45),
+        inset 0 0 30px rgba(255,180,30,0.05);
 }
 
 
@@ -608,16 +360,19 @@ body {
 
     align-items: center;
 
-    margin-bottom: 20px;
-
+    margin-bottom: 22px;
 }
 
 
 .icon-box {
 
-    width: 55px;
+    width: 58px;
 
-    height: 55px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    margin-right: 14px;
 
     display: flex;
 
@@ -625,12 +380,19 @@ body {
 
     justify-content: center;
 
-    background: #f7f1e8;
+    font-size: 24px;
 
-    color: #b66d13;
+    color: #ffd061;
 
-    font-size: 20px;
+    border: 1px solid #b77821;
 
+    background:
+
+        linear-gradient(
+            145deg,
+            #7b1d12,
+            #3e0605
+        );
 }
 
 
@@ -638,29 +400,37 @@ body {
 
     width: 100%;
 
-    height: 55px;
+    height: 58px;
 
-    padding: 0 18px;
+    padding: 0 20px;
+
+    font-size: 17px;
+
+    color: white;
 
     outline: none;
 
-    border:
+    border-radius: 12px;
 
-        1px solid #e0dedb;
+    border: 1px solid rgba(225,170,60,0.55);
 
-    font-family: inherit;
+    background:
+        rgba(50,5,5,0.65);
+}
 
-    font-size: 15px;
 
-    color: #333;
+.input-row input::placeholder {
 
+    color: #d7b8b8;
 }
 
 
 .input-row input:focus {
 
-    border-color: #d98b16;
+    border-color: #ffd061;
 
+    box-shadow:
+        0 0 10px rgba(255,200,70,0.3);
 }
 
 
@@ -672,50 +442,57 @@ body {
 
     width: 100%;
 
-    height: 58px;
+    height: 62px;
 
     border: none;
 
+    border-radius: 12px;
+
     cursor: pointer;
 
-    margin-top: 8px;
+    font-size: 24px;
 
-    font-family: inherit;
-
-    font-size: 16px;
-
-    font-weight: 600;
+    font-weight: bold;
 
     letter-spacing: 1px;
 
-    color: #4a2107;
+    color: #4b1206;
 
     background:
 
         linear-gradient(
             180deg,
-            #f8cf73,
-            #df941b
+            #ffd96c,
+            #f3a51c
         );
 
-    transition: 0.3s;
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.35);
 
+    transition: 0.3s;
 }
 
 
 .login-button:hover {
 
+    transform: translateY(-2px);
+
     background:
 
         linear-gradient(
             180deg,
-            #ffe09a,
-            #eaa52b
+            #ffe597,
+            #f6b431
         );
 
-    transform:
-        translateY(-2px);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.45);
+}
 
+
+.login-button:active {
+
+    transform: translateY(1px);
 }
 
 
@@ -725,83 +502,11 @@ body {
 
 .footer {
 
-    padding: 28px 20px;
+    margin-top: 40px;
 
-    text-align: center;
-
-    background: #2f160d;
-
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,220,160,0.65);
 
     font-size: 13px;
-
-}
-
-
-/* =========================================
-   MOBILE MENU
-========================================= */
-
-.mobile-menu {
-
-    display: none;
-
-}
-
-
-/* =========================================
-   TABLET RESPONSIVE
-========================================= */
-
-@media (max-width: 900px) {
-
-
-    .navbar {
-
-        padding:
-            15px 20px;
-
-    }
-
-
-    .nav-links {
-
-        gap: 15px;
-
-    }
-
-
-    .nav-links a {
-
-        font-size: 11px;
-
-    }
-
-
-    .info-section {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .info-card {
-
-        border-right: none;
-
-        border-bottom:
-            1px solid #ececec;
-
-    }
-
-
-    .info-card:last-child {
-
-        border-bottom: none;
-
-    }
-
 }
 
 
@@ -811,112 +516,86 @@ body {
 
 @media (max-width: 768px) {
 
+    .top-header {
 
-    .hero {
+        width: 90%;
 
-        min-height: 560px;
-
+        padding: 14px 18px;
     }
 
 
-    .navbar {
+    .top-header h2 {
 
-        top: 15px;
-
-        width: 94%;
-
-        min-height: 60px;
-
-        padding:
-            10px 18px;
-
+        font-size: 22px;
     }
 
 
-    .logo-main {
+    .top-header p {
 
-        font-size: 18px;
+        font-size: 8px;
 
+        letter-spacing: 2px;
     }
 
 
-    .nav-links {
+    .hero-banner {
 
-        display: none;
-
+        min-height: 250px;
     }
 
 
-    .mobile-menu {
+    .hero-banner img {
 
-        display: block;
+        min-height: 250px;
 
-        font-size: 24px;
-
-        color: #4a1b0c;
-
+        object-fit: cover;
     }
 
 
-    .hero-content {
+    .banner-title {
 
-        min-height: 560px;
-
-        width: 88%;
-
-        align-items: flex-end;
-
-        padding-bottom: 55px;
-
+        padding: 15px 10px 18px;
     }
 
 
-    .hero-text {
+    .banner-title h1 {
 
-        margin-top: 0;
+        font-size: clamp(15px, 4.2vw, 28px);
 
+        white-space: nowrap;
     }
 
 
-    .hero-text h1 {
+    .main-section {
 
-        font-size:
-            clamp(28px, 8vw, 40px);
-
-    }
-
-
-    .hero-text p {
-
-        font-size: 13px;
-
-    }
-
-
-    .info-card {
-
-        padding: 40px 30px;
-
-    }
-
-
-    .login-section {
-
-        padding:
-            65px 15px;
-
+        padding: 55px 15px 70px;
     }
 
 
     .login-card {
 
-        padding:
-            30px 20px;
+        padding: 22px 16px;
+    }
 
+
+    .input-row input {
+
+        font-size: 16px;
+
+        height: 52px;
+    }
+
+
+    .icon-box {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 20px;
     }
 
 }
-
 
 </style>
 
@@ -927,123 +606,84 @@ body {
 
 
 <!-- =====================================
-     HERO SECTION
+     TOP HEADER
 ===================================== -->
 
-<section class="hero">
+<header class="top-header">
+
+    <h2>KTM Trust</h2>
+
+    <p>
+        KARANTHANERI TEMPLES MAINTENANCE TRUST
+    </p>
+
+</header>
 
 
-    <!-- HERO IMAGE -->
+<!-- =====================================
+     HERO BANNER
+===================================== -->
 
-    <div class="hero-image">
+<section class="hero-banner">
 
-        <img
-            src="god-heroimage.png"
-            alt="Karanthaneri Temple Deities"
-        >
-
-    </div>
-
-
-
-    <!-- =====================================
-         NAVIGATION BAR
-    ===================================== -->
-
-    <nav class="navbar">
-
-
-        <!-- LOGO -->
-
-        <div class="logo">
-
-            <div class="logo-main">
-                KTM Trust
-            </div>
-
-            <div class="logo-sub">
-                Karanthaneri Temples Maintenance Trust
-            </div>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- =====================================
-         HERO TEXT
-    ===================================== -->
-
-    <div
-        class="hero-content"
-        id="home"
+    <img
+        src="god-heroimage.png"
+        alt="Temple Deities"
     >
 
-        <div class="hero-text">          
 
-            <h1>
+    <!-- TITLE AT BOTTOM OF BANNER -->
 
-                கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு
+    <div class="banner-title">
 
-            </h1>
-            
-        </div>
+        <h1>
+            கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு
+        </h1>
 
     </div>
 
 </section>
 
- 
+
+
 <!-- =====================================
-     LOGIN SECTION
+     MAIN SECTION
 ===================================== -->
 
-<section
-    class="login-section"
-    id="login"
->
+<section class="main-section">
 
 
-    <h2 class="section-title">
+    <!-- TEMPLE SYMBOL -->
 
-        உள் நுழைவு
-
-    </h2>
-
-
-    <div class="section-subtitle">
-
-        KTM Trust Login
-
+    <div class="temple-icon">
+        🛕
     </div>
 
 
+    <!-- DECORATIVE LINE -->
 
-    <!-- =====================================
-         LOGIN CARD
-    ===================================== -->
+    <div class="gold-line"></div>
+
+
+    <!-- ENGLISH SUBTITLE -->
+
+    <div class="subtitle">
+        Karanthaneri Temples &amp; Maintenance Trust (KTM)
+    </div>
+
+
+    <!-- LOGIN CARD -->
 
     <div class="login-card">
-
-
-        <div class="login-card-title">
-
-            Administrator Login
-
-        </div>
-
 
 
         <!-- USERNAME -->
 
         <div class="input-row">
 
-
             <div class="icon-box">
                 👤
             </div>
-
 
             <input
                 type="text"
@@ -1051,20 +691,16 @@ body {
                 placeholder="Username"
             >
 
-
         </div>
-
 
 
         <!-- PASSWORD -->
 
         <div class="input-row">
 
-
             <div class="icon-box">
                 🔒
             </div>
-
 
             <input
                 type="password"
@@ -1072,9 +708,7 @@ body {
                 placeholder="Password"
             >
 
-
         </div>
-
 
 
         <!-- LOGIN BUTTON -->
@@ -1083,12 +717,20 @@ body {
             class="login-button"
             onclick="login()"
         >
-
             LOGIN
-
         </button>
 
 
+    </div>
+
+
+    <div class="gold-line"></div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        © KTM Portal
     </div>
 
 
@@ -1097,61 +739,26 @@ body {
 
 
 <!-- =====================================
-     FOOTER
-===================================== -->
-
-<footer
-    class="footer"
-    id="contact"
->
-
-    © KTM Trust Portal |
-    Karandhaneri Temples &amp; Maintenance Trust
-
-</footer>
-
-
-
-<!-- =====================================
-     LOGIN SCRIPT
-     ORIGINAL FUNCTIONALITY PRESERVED
+     SIMPLE LOGIN SCRIPT
 ===================================== -->
 
 <script>
 
-
 function login() {
 
-
     const username =
-        document
-            .getElementById("username")
-            .value;
-
+        document.getElementById("username").value;
 
     const password =
-        document
-            .getElementById("password")
-            .value;
+        document.getElementById("password").value;
 
 
+    if (username === "" || password === "") {
 
-    if (
-        username === ""
-        ||
-        password === ""
-    ) {
-
-
-        alert(
-            "Please enter Username and Password."
-        );
-
+        alert("Please enter Username and Password.");
 
         return;
-
     }
-
 
 
     /*
@@ -1160,18 +767,14 @@ function login() {
        authentication system.
     */
 
-
     alert(
         "Login request submitted."
     );
 
-
 }
-
 
 </script>
 
 
 </body>
-
 </html>
