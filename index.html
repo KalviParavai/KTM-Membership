@@ -25,9 +25,9 @@ body {
     min-height: 100vh;
 
     background:
-        radial-gradient(circle at top, #741b17, #350707 65%, #210303);
+        radial-gradient(circle at top, #fff7e6, #f1e2c5 65%, #dcc59a);
 
-    color: #ffffff;
+    color: #4a3824;
 }
 
 
@@ -38,6 +38,13 @@ body {
 .top-header {
     text-align: center;
     padding: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf8,
+            #f3eadb
+        );
 }
 
 .top-header h2 {
@@ -55,6 +62,8 @@ body {
     letter-spacing: 3px;
 
     font-weight: bold;
+
+    color: #5b3a1d;
 }
 
 
@@ -66,7 +75,7 @@ body {
 
     letter-spacing: 3px;
 
-    color: #80572d;
+    color: #8a6a3d;
 }
 
 
@@ -82,10 +91,10 @@ body {
 
     overflow: hidden;
 
-    border-top: 3px solid #dca62a;
-    border-bottom: 3px solid #dca62a;
+    border-top: 3px solid #c9a24d;
+    border-bottom: 3px solid #c9a24d;
 
-    background: #2a0503;
+    background: #e8d5a8;
 }
 
 
@@ -100,7 +109,7 @@ body {
 
 
 /* =========================================
-   DARK OVERLAY
+   OVERLAY
 ========================================= */
 
 .hero-banner::after {
@@ -114,9 +123,9 @@ body {
     background:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,0.05) 40%,
-            rgba(0,0,0,0.15) 65%,
-            rgba(20,0,0,0.75) 100%
+            rgba(255,248,225,0.03) 40%,
+            rgba(100,70,25,0.10) 65%,
+            rgba(60,40,15,0.60) 100%
         );
 
     pointer-events: none;
@@ -147,8 +156,8 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(20,0,0,0.85),
-            rgba(20,0,0,0.45),
+            rgba(70,45,15,0.78),
+            rgba(100,70,25,0.30),
             transparent
         );
 }
@@ -162,13 +171,13 @@ body {
 
     font-weight: bold;
 
-    color: #ffffff;
+    color: #fffdf6;
 
     white-space: nowrap;
 
     text-shadow:
-        0 3px 8px #000000,
-        0 0 18px rgba(255,190,50,0.35);
+        0 3px 8px #3b260f,
+        0 0 18px rgba(255,220,120,0.35);
 
     letter-spacing: 1px;
 }
@@ -190,19 +199,19 @@ body {
 
         radial-gradient(
             circle at center,
-            rgba(130,30,20,0.45),
+            rgba(214,181,115,0.35),
             transparent 65%
         ),
 
         linear-gradient(
             180deg,
-            #5b0b0b,
-            #350505 80%
+            #fff9eb,
+            #eadcc2 80%
         );
 
     text-align: center;
 
-    border-top: 3px solid #dca62a;
+    border-top: 3px solid #c9a24d;
 }
 
 
@@ -223,9 +232,9 @@ body {
         linear-gradient(
             to right,
             transparent,
-            #f6c94c,
-            #fff0a3,
-            #f6c94c,
+            #c99b3c,
+            #f6df9b,
+            #c99b3c,
             transparent
         );
 
@@ -245,9 +254,9 @@ body {
 
     transform: translate(-50%, -55%);
 
-    color: #ffd966;
+    color: #b8862d;
 
-    background: #5b0b0b;
+    background: #f3e7d1;
 
     padding: 0 12px;
 
@@ -270,9 +279,9 @@ body {
     border-radius: 50%;
 
     background:
-        linear-gradient(145deg, #7d1b12, #3d0505);
+        linear-gradient(145deg, #f7e6bd, #d9bb79);
 
-    border: 2px solid #e7b83c;
+    border: 2px solid #c89a3b;
 
     display: flex;
 
@@ -282,14 +291,14 @@ body {
 
     font-size: 34px;
 
-    color: #ffd76b;
+    color: #8a641e;
 
     position: relative;
 
     z-index: 5;
 
     box-shadow:
-        0 0 20px rgba(255,190,50,0.4);
+        0 0 20px rgba(170,125,35,0.30);
 }
 
 
@@ -301,7 +310,7 @@ body {
 
     margin-top: 15px;
 
-    color: #f5dba0;
+    color: #6b5132;
 
     font-size: 16px;
 
@@ -329,17 +338,17 @@ body {
 
         linear-gradient(
             145deg,
-            rgba(90,10,10,0.9),
-            rgba(45,3,3,0.95)
+            rgba(255,252,243,0.95),
+            rgba(239,225,195,0.98)
         );
 
-    border: 2px solid #d9a82c;
+    border: 2px solid #c9a24d;
 
     border-radius: 18px;
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,0.45),
-        inset 0 0 30px rgba(255,180,30,0.05);
+        0 15px 40px rgba(80,60,30,0.20),
+        inset 0 0 30px rgba(200,160,60,0.08);
 }
 
 
@@ -375,16 +384,16 @@ body {
 
     font-size: 24px;
 
-    color: #ffd061;
+    color: #8a641e;
 
-    border: 1px solid #b77821;
+    border: 1px solid #c7a056;
 
     background:
 
         linear-gradient(
             145deg,
-            #7b1d12,
-            #3e0605
+            #f7e7be,
+            #ddc48b
         );
 }
 
@@ -399,31 +408,31 @@ body {
 
     font-size: 17px;
 
-    color: white;
+    color: #4a3824;
 
     outline: none;
 
     border-radius: 12px;
 
-    border: 1px solid rgba(225,170,60,0.55);
+    border: 1px solid rgba(170,130,60,0.55);
 
     background:
-        rgba(50,5,5,0.65);
+        rgba(255,253,247,0.90);
 }
 
 
 .input-row input::placeholder {
 
-    color: #d7b8b8;
+    color: #9a876b;
 }
 
 
 .input-row input:focus {
 
-    border-color: #ffd061;
+    border-color: #c89a3b;
 
     box-shadow:
-        0 0 10px rgba(255,200,70,0.3);
+        0 0 10px rgba(200,155,55,0.25);
 }
 
 
@@ -449,18 +458,18 @@ body {
 
     letter-spacing: 1px;
 
-    color: #4b1206;
+    color: #4b3514;
 
     background:
 
         linear-gradient(
             180deg,
-            #ffd96c,
-            #f3a51c
+            #f5d36d,
+            #dca535
         );
 
     box-shadow:
-        0 7px 18px rgba(0,0,0,0.35);
+        0 7px 18px rgba(100,70,20,0.25);
 
     transition: 0.3s;
 }
@@ -474,12 +483,12 @@ body {
 
         linear-gradient(
             180deg,
-            #ffe597,
-            #f6b431
+            #f9e29a,
+            #e6b64e
         );
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.45);
+        0 10px 25px rgba(100,70,20,0.30);
 }
 
 
@@ -497,7 +506,7 @@ body {
 
     margin-top: 40px;
 
-    color: rgba(255,220,160,0.65);
+    color: rgba(90,65,30,0.65);
 
     font-size: 13px;
 }
@@ -660,11 +669,7 @@ body {
 
     <!-- ENGLISH SUBTITLE -->
 
-    <div class="subtitle">
-        Karanthaneri Temples &amp; Maintenance Trust (KTM)
-    </div>
-
-
+    
     <!-- LOGIN CARD -->
 
     <div class="login-card">
