@@ -304,7 +304,9 @@ function fullname(m){
 }
 
 
-async function loadMember(){
+ async function loadMember(){
+
+    console.log("regNo received:", regNo);
 
     if(!regNo){
 
@@ -315,187 +317,71 @@ async function loadMember(){
 
     }
 
-
     try{
 
+        const url =
+        API_URL +
+        "?action=getmember" +
+        "&regNo=" +
+        encodeURIComponent(regNo);
+
+        console.log("Calling API:", url);
+
         const response =
-        await fetch(
+        await fetch(url);
 
-            API_URL +
-
-            "?action=getmember" +
-
-            "&regNo=" +
-
-            encodeURIComponent(
-                regNo
-            )
-
+        console.log(
+            "HTTP Status:",
+            response.status
         );
-
 
         const data =
         await response.json();
 
+        console.log(
+            "API Data:",
+            data
+        );
 
         if(!data.success){
 
             throw new Error(
-                data.message
+                data.message ||
+                "Member not found."
             );
 
         }
-
 
         const member =
         data.member;
 
 
-        let fields =
-        Object.entries(
-            member
-        )
-
-        .map(
-            ([key,value]) => {
-
-                let css =
-                "field";
-
-
-                if(
-                    String(key)
-                    .toUpperCase()
-                    .includes(
-                        "ADDRESS"
-                    )
-                    ||
-                    String(value).length > 100
-                ){
-
-                    css +=
-                    " full";
-
-                }
-
-
-                let displayValue =
-                value || "—";
-
-
-                if(
-                    key === "STATUS"
-                ){
-
-                    displayValue =
-                    `<span class="${
-                        String(value)
-                        .toUpperCase()
-                        === "ACTIVE"
-                        ?
-                        "status-active"
-                        :
-                        "status-inactive"
-                    }">
-                    ${esc(value)}
-                    </span>`;
-
-                }
-
-                else{
-
-                    displayValue =
-                    esc(
-                        displayValue
-                    );
-
-                }
-
-
-                return `
-
-                <div
-                class="${css}"
-                >
-
-                    <b>
-                    ${esc(key)}
-                    </b>
-
-                    ${displayValue}
-
-                </div>
-
-                `;
-
-            }
-
-        )
-
-        .join("");
-
-
         content.innerHTML =
         `
 
-        <div
-        class="member-title"
-        >
-
         <h2>
-        ${esc(
-            fullname(member)
-        )}
+        Member Successfully Loaded
         </h2>
 
         <p>
-        Registration Number:
-        <b>
+        <b>REG_NO:</b>
         ${esc(member.REG_NO)}
-        </b>
         </p>
 
-        </div>
+        <p>
+        <b>Name:</b>
+        ${esc(member.Name)}
+        </p>
 
+        <p>
+        <b>Location:</b>
+        ${esc(member.Location)}
+        </p>
 
-        <div
-        class="grid"
-        >
-
-        ${fields}
-
-        </div>
-
-
-        <br>
-
-
-        <button
-        class="back"
-        onclick="
-        location.href='dashboard.html'
-        "
-        >
-
-        ← Dashboard
-
-        </button>
-
-
-        <button
-        class="update"
-        onclick="
-        location.href=
-        'updatemember.html?regNo='+
-        encodeURIComponent(
-            '${esc(member.REG_NO)}'
-        )
-        "
-        >
-
-        ✏ Update Member
-
-        </button>
+        <p>
+        <b>District:</b>
+        ${esc(member.District)}
+        </p>
 
         `;
 
@@ -503,13 +389,27 @@ async function loadMember(){
 
     catch(error){
 
+        console.error(
+            "ERROR:",
+            error
+        );
+
         content.innerHTML =
-        "Unable to load member details.";
+        `
+
+        <h2>
+        Error Loading Member
+        </h2>
+
+        <p>
+        ${esc(error.message)}
+        </p>
+
+        `;
 
     }
 
 }
-
 
 loadMember();
 
