@@ -262,8 +262,9 @@ new URLSearchParams(
 
 
 const regNo =
-params.get(
-    "regNo"
+params.get("regNo") ||
+params.get("reg");
+    
 );
 
 
