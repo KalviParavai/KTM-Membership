@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>KTM Member Details</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Arial,
+    "Noto Sans Tamil",
+    sans-serif;
+
+    background:#f7ead0;
+
+    color:#3b1a10;
+
+}
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #310303,
+        #820d0d,
+        #4a0505
+    );
+
+    color:#fff;
+
+    padding:20px 30px;
+
+    border-bottom:
+    4px solid #f4b942;
+
+}
+
+header h1{
+
+    margin:0;
+
+    color:#ffe39a;
+
+}
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:35px 20px;
+
+}
+
+.member-card{
+
+    background:#fffaf0;
+
+    border-radius:20px;
+
+    border:
+    1px solid #ead9b7;
+
+    padding:30px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(60,30,0,.12);
+
+}
+
+.member-title{
+
+    border-bottom:
+    2px solid #f4b942;
+
+    padding-bottom:18px;
+
+    margin-bottom:25px;
+
+}
+
+.member-title h2{
+
+    margin:0;
+
+    color:#710a0a;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.field{
+
+    background:#fff;
+
+    border:
+    1px solid #ead9b7;
+
+    border-radius:12px;
+
+    padding:15px;
+
+}
+
+.field.full{
+
+    grid-column:
+    1 / -1;
+
+}
+
+.field b{
+
+    display:block;
+
+    color:#9a7119;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+
+}
+
+button{
+
+    border:0;
+
+    border-radius:10px;
+
+    padding:12px 22px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    margin-right:10px;
+
+}
+
+.back{
+
+    background:#6f0909;
+
+    color:#fff;
+
+}
+
+.update{
+
+    background:
+    linear-gradient(
+        #ffe18c,
+        #e99a19
+    );
+
+    color:#4a1800;
+
+}
+
+.status-active{
+
+    color:#0c6b3e;
+
+    font-weight:bold;
+
+}
+
+.status-inactive{
+
+    color:#a91b11;
+
+    font-weight:bold;
+
+}
+
+@media(max-width:700px){
+
+    .grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .field.full{
+
+        grid-column:auto;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+KTM Member Full Details
+</h1>
+
+</header>
+
+
+<main class="container">
+
+<div
+id="content"
+class="member-card"
+>
+
+Loading member details...
+
+</div>
+
+</main>
+
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxAtWy9LybpBEN-DYA5veu-0w7vI_VFjJuz2nIhB0uNN-inTuutxUbefByP4DNkFibJLw/exec";
+
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+
+const regNo =
+params.get(
+    "regNo"
+);
+
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        c => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[c]
+    );
+
+}
+
+
+function fullname(m){
+
+    return [
+
+        m.Title,
+        m.Initial,
+        m.Name
+
+    ]
+
+    .filter(Boolean)
+
+    .join(" ")
+
+    .trim();
+
+}
+
+
+async function loadMember(){
+
+    if(!regNo){
+
+        content.innerHTML =
+        "Registration Number not provided.";
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+        await fetch(
+
+            API_URL +
+
+            "?action=getmember" +
+
+            "&regNo=" +
+
+            encodeURIComponent(
+                regNo
+            )
+
+        );
+
+
+        const data =
+        await response.json();
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.message
+            );
+
+        }
+
+
+        const member =
+        data.member;
+
+
+        let fields =
+        Object.entries(
+            member
+        )
+
+        .map(
+            ([key,value]) => {
+
+                let css =
+                "field";
+
+
+                if(
+                    String(key)
+                    .toUpperCase()
+                    .includes(
+                        "ADDRESS"
+                    )
+                    ||
+                    String(value).length > 100
+                ){
+
+                    css +=
+                    " full";
+
+                }
+
+
+                let displayValue =
+                value || "—";
+
+
+                if(
+                    key === "STATUS"
+                ){
+
+                    displayValue =
+                    `<span class="${
+                        String(value)
+                        .toUpperCase()
+                        === "ACTIVE"
+                        ?
+                        "status-active"
+                        :
+                        "status-inactive"
+                    }">
+                    ${esc(value)}
+                    </span>`;
+
+                }
+
+                else{
+
+                    displayValue =
+                    esc(
+                        displayValue
+                    );
+
+                }
+
+
+                return `
+
+                <div
+                class="${css}"
+                >
+
+                    <b>
+                    ${esc(key)}
+                    </b>
+
+                    ${displayValue}
+
+                </div>
+
+                `;
+
+            }
+
+        )
+
+        .join("");
+
+
+        content.innerHTML =
+        `
+
+        <div
+        class="member-title"
+        >
+
+        <h2>
+        ${esc(
+            fullname(member)
+        )}
+        </h2>
+
+        <p>
+        Registration Number:
+        <b>
+        ${esc(member.REG_NO)}
+        </b>
+        </p>
+
+        </div>
+
+
+        <div
+        class="grid"
+        >
+
+        ${fields}
+
+        </div>
+
+
+        <br>
+
+
+        <button
+        class="back"
+        onclick="
+        location.href='dashboard.html'
+        "
+        >
+
+        ← Dashboard
+
+        </button>
+
+
+        <button
+        class="update"
+        onclick="
+        location.href=
+        'updatemember.html?regNo='+
+        encodeURIComponent(
+            '${esc(member.REG_NO)}'
+        )
+        "
+        >
+
+        ✏ Update Member
+
+        </button>
+
+        `;
+
+    }
+
+    catch(error){
+
+        content.innerHTML =
+        "Unable to load member details.";
+
+    }
+
+}
+
+
+loadMember();
+
+</script>
+
+</body>
+</html>
