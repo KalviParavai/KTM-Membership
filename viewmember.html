@@ -265,7 +265,6 @@ const regNo =
     params.get("regNo") ||
     params.get("reg");
 
-
 function esc(value){
 
     return String(value ?? "")
@@ -278,9 +277,10 @@ function esc(value){
             '"':"&quot;",
             "'":"&#039;"
         }[c]
-    );
+    ));
 
 }
+ 
 
 
 async function loadMember(){
