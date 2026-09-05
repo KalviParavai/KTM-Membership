@@ -262,9 +262,8 @@ new URLSearchParams(
 
 
 const regNo =
-params.get("regNo") ||
-params.get("reg");
-
+    params.get("regNo") ||
+    params.get("reg");
 
 
 function esc(value){
@@ -284,28 +283,13 @@ function esc(value){
 }
 
 
-function fullname(m){
+async function loadMember(){
 
-    return [
+    console.log(
+        "regNo received:",
+        regNo
+    );
 
-        m.Title,
-        m.Initial,
-        m.Name
-
-    ]
-
-    .filter(Boolean)
-
-    .join(" ")
-
-    .trim();
-
-}
-
-
- async function loadMember(){
-
-    console.log("regNo received:", regNo);
 
     if(!regNo){
 
@@ -316,6 +300,7 @@ function fullname(m){
 
     }
 
+
     try{
 
         const url =
@@ -324,23 +309,32 @@ function fullname(m){
         "&regNo=" +
         encodeURIComponent(regNo);
 
-        console.log("Calling API:", url);
+
+        console.log(
+            "Calling API:",
+            url
+        );
+
 
         const response =
         await fetch(url);
+
 
         console.log(
             "HTTP Status:",
             response.status
         );
 
+
         const data =
         await response.json();
+
 
         console.log(
             "API Data:",
             data
         );
+
 
         if(!data.success){
 
@@ -350,6 +344,7 @@ function fullname(m){
             );
 
         }
+
 
         const member =
         data.member;
@@ -393,6 +388,7 @@ function fullname(m){
             error
         );
 
+
         content.innerHTML =
         `
 
@@ -409,6 +405,7 @@ function fullname(m){
     }
 
 }
+
 
 loadMember();
 
