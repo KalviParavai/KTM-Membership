@@ -5,8 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>KTM Member Dashboard</title>
 
@@ -18,13 +20,17 @@
 ========================================= */
 
 * {
-    box-sizing: border-box;
+
+    box-sizing:
+        border-box;
+
 }
 
 
 body {
 
-    margin: 0;
+    margin:
+        0;
 
     font-family:
         Arial,
@@ -36,6 +42,7 @@ body {
 
     color:
         #3b1a10;
+
 }
 
 
@@ -46,50 +53,68 @@ body {
 header {
 
     background:
+
         linear-gradient(
+
             135deg,
+
             #310303,
+
             #820d0d,
+
             #4a0505
+
         );
 
-    color: #fff;
+    color:
+        #fff;
 
-    padding: 18px 24px;
+    padding:
+        18px 24px;
 
     border-bottom:
         4px solid #f4b942;
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    gap: 20px;
+    gap:
+        20px;
 
-    align-items: center;
+    align-items:
+        center;
+
 }
 
 
 header h1 {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         #ffe39a;
 
     font-size:
         clamp(20px,3vw,30px);
+
 }
 
 
 header p {
 
-    margin: 6px 0 0;
+    margin:
+        6px 0 0;
 
     color:
         #f8deb0;
 
-    font-size: 13px;
+    font-size:
+        13px;
+
 }
 
 
@@ -98,9 +123,12 @@ header p {
     color:
         #ffe39a;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
+
 }
 
 
@@ -110,12 +138,15 @@ header p {
 
 .container {
 
-    max-width: 1450px;
+    max-width:
+        1450px;
 
-    margin: auto;
+    margin:
+        auto;
 
     padding:
         28px 20px 45px;
+
 }
 
 
@@ -136,6 +167,19 @@ header p {
 
     border-left:
         6px solid #f4b942;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
 }
 
 
@@ -146,6 +190,64 @@ header p {
 
     margin:
         0 0 7px;
+
+}
+
+
+/* =========================================
+   NEW MEMBER BUTTON
+========================================= */
+
+.add-member {
+
+    border:
+        0;
+
+    border-radius:
+        10px;
+
+    padding:
+        13px 20px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    white-space:
+        nowrap;
+
+    color:
+        #4a2100;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #ffe39a,
+
+            #f2b63f
+
+        );
+
+    box-shadow:
+        0 4px 10px
+        rgba(70,30,0,.18);
+
+}
+
+
+.add-member:hover {
+
+    transform:
+        translateY(-1px);
+
 }
 
 
@@ -165,60 +267,78 @@ header p {
         22px;
 
     background:
+
         linear-gradient(
+
             135deg,
+
             #710a0a,
+
             #3b0303
+
         );
 
     border:
         2px solid #f4b942;
+
 }
 
 
 .search h2 {
 
-    text-align: center;
+    text-align:
+        center;
 
     color:
         #ffe3a1;
 
     margin:
         0 0 18px;
+
 }
 
 
 .searchgrid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1fr 1fr 1fr auto;
 
-    gap: 14px;
+    gap:
+        14px;
 
-    align-items: end;
+    align-items:
+        end;
+
 }
 
 
 label {
 
-    display: block;
+    display:
+        block;
 
     color:
         #f7d9a2;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    margin-bottom: 7px;
+    margin-bottom:
+        7px;
+
 }
 
 
 input {
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 52px;
+    height:
+        52px;
 
     border-radius:
         12px;
@@ -231,6 +351,7 @@ input {
 
     font-size:
         16px;
+
 }
 
 
@@ -239,52 +360,70 @@ input {
     height:
         52px;
 
-    border: 0;
+    border:
+        0;
 
     border-radius:
         12px;
 
     padding:
-        0 28px;
-
-    font-size:
-        17px;
-
-    font-weight:
-        bold;
+        0 25px;
 
     cursor:
         pointer;
 
-    background:
-        linear-gradient(
-            #ffe18c,
-            #e99a19
-        );
+    font-size:
+        16px;
+
+    font-weight:
+        bold;
 
     color:
-        #4a1800;
+        #4a2100;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #ffe39a,
+
+            #f2b63f
+
+        );
+
+}
+
+
+.search button:hover {
+
+    filter:
+        brightness(1.05);
+
 }
 
 
 .clear {
 
-    display: block;
+    display:
+        block;
 
     margin:
-        12px auto 0;
+        16px auto 0;
 
     background:
-        none !important;
+        transparent !important;
 
     color:
-        #ffd976 !important;
+        #ffe3a1 !important;
+
+    padding:
+        0 !important;
 
     height:
         auto !important;
 
-    padding:
-        0 !important;
 }
 
 
@@ -294,7 +433,8 @@ input {
 
 .stats {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(4,1fr);
@@ -302,52 +442,52 @@ input {
     gap:
         18px;
 
-    margin:
-        22px 0;
 }
 
 
-.card,
-.panel {
+.card {
 
     background:
-        #fff;
+        #fffaf0;
+
+    padding:
+        24px;
+
+    border-radius:
+        20px;
 
     border:
         1px solid #ead9b7;
 
-    border-radius:
-        18px;
-
-    padding:
-        22px;
-
     box-shadow:
-        0 7px 20px
-        rgba(60,30,0,.08);
+        0 10px 25px
+        rgba(100,50,10,.08);
+
 }
 
 
 .num {
 
     font-size:
-        34px;
+        38px;
 
     font-weight:
         bold;
 
     color:
         #6f0909;
+
+    margin:
+        6px 0;
+
 }
 
 
 .label {
 
     color:
-        #8b6a55;
+        #795d4d;
 
-    margin-top:
-        5px;
 }
 
 
@@ -357,43 +497,70 @@ input {
 
 .dash {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        1.15fr .85fr;
+        1.2fr .9fr;
 
     gap:
+        24px;
+
+    margin-top:
+        24px;
+
+}
+
+
+.panel {
+
+    background:
+        #fffaf0;
+
+    border:
+        1px solid #ead9b7;
+
+    border-radius:
         20px;
+
+    padding:
+        24px;
+
 }
 
 
 .panel h3 {
 
-    color:
-        #710a0a;
-
     margin:
         0 0 18px;
+
+    color:
+        #6f0909;
+
 }
 
 
+/* =========================================
+   BREAKDOWN ROW
+========================================= */
+
 .row {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        minmax(100px,180px)
-        1fr
-        50px;
+        220px 1fr 55px;
 
     gap:
-        10px;
+        12px;
 
     align-items:
         center;
 
     margin:
         12px 0;
+
 }
 
 
@@ -407,22 +574,24 @@ input {
 
     text-overflow:
         ellipsis;
+
 }
 
 
 .bar {
 
     height:
-        12px;
+        14px;
 
     background:
-        #f2e7d2;
+        #eee5d4;
 
     border-radius:
-        10px;
+        20px;
 
     overflow:
         hidden;
+
 }
 
 
@@ -432,11 +601,17 @@ input {
         100%;
 
     background:
+
         linear-gradient(
+
             90deg,
+
             #a80f0f,
+
             #f2b63f
+
         );
+
 }
 
 
@@ -450,11 +625,12 @@ input {
 
     color:
         #6f0909;
+
 }
 
 
 /* =========================================
-   RESULTS
+   RESULT HEADER
 ========================================= */
 
 .resulthead {
@@ -466,10 +642,11 @@ input {
         space-between;
 
     align-items:
-        end;
+        center;
 
     margin:
         28px 0 12px;
+
 }
 
 
@@ -478,7 +655,9 @@ input {
     color:
         #710a0a;
 
-    margin: 0;
+    margin:
+        0;
+
 }
 
 
@@ -489,8 +668,13 @@ input {
 
     font-size:
         14px;
+
 }
 
+
+/* =========================================
+   TABLE
+========================================= */
 
 .tablewrap {
 
@@ -505,6 +689,7 @@ input {
 
     border-radius:
         18px;
+
 }
 
 
@@ -517,7 +702,8 @@ table {
         collapse;
 
     min-width:
-        900px;
+        1050px;
+
 }
 
 
@@ -537,6 +723,7 @@ th {
 
     font-size:
         13px;
+
 }
 
 
@@ -550,6 +737,7 @@ td {
 
     font-size:
         14px;
+
 }
 
 
@@ -560,6 +748,7 @@ td {
 
     color:
         #6f0909;
+
 }
 
 
@@ -576,6 +765,7 @@ td {
 
     font-weight:
         bold;
+
 }
 
 
@@ -586,6 +776,7 @@ td {
 
     color:
         #0c6b3e;
+
 }
 
 
@@ -596,6 +787,25 @@ td {
 
     color:
         #a91b11;
+
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.action-buttons {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        6px;
+
 }
 
 
@@ -611,7 +821,7 @@ td {
         #6f0909;
 
     padding:
-        7px 12px;
+        7px 10px;
 
     border-radius:
         8px;
@@ -621,6 +831,68 @@ td {
 
     font-weight:
         bold;
+
+    font-size:
+        12px;
+
+}
+
+
+.full-view {
+
+    border:
+        1px solid #4d7d8c;
+
+    background:
+        #eef9fc;
+
+    color:
+        #15505f;
+
+    padding:
+        7px 10px;
+
+    border-radius:
+        8px;
+
+    cursor:
+        pointer;
+
+    font-weight:
+        bold;
+
+    font-size:
+        12px;
+
+}
+
+
+.update {
+
+    border:
+        1px solid #6f7d28;
+
+    background:
+        #f4f8df;
+
+    color:
+        #536000;
+
+    padding:
+        7px 10px;
+
+    border-radius:
+        8px;
+
+    cursor:
+        pointer;
+
+    font-weight:
+        bold;
+
+    font-size:
+        12px;
+
 }
 
 
@@ -634,6 +906,7 @@ td {
 
     color:
         #8b6a55;
+
 }
 
 
@@ -666,6 +939,7 @@ td {
 
     justify-content:
         center;
+
 }
 
 
@@ -673,6 +947,7 @@ td {
 
     display:
         flex;
+
 }
 
 
@@ -701,6 +976,7 @@ td {
 
     padding:
         26px;
+
 }
 
 
@@ -729,6 +1005,7 @@ td {
 
     color:
         #710a0a;
+
 }
 
 
@@ -742,6 +1019,7 @@ td {
 
     gap:
         12px;
+
 }
 
 
@@ -758,6 +1036,7 @@ td {
 
     background:
         #fff;
+
 }
 
 
@@ -774,6 +1053,7 @@ td {
 
     margin-bottom:
         5px;
+
 }
 
 
@@ -781,11 +1061,12 @@ td {
 
     grid-column:
         1 / -1;
+
 }
 
 
 /* =========================================
-   MOBILE
+   MOBILE RESPONSIVE
 ========================================= */
 
 @media(max-width:950px){
@@ -794,20 +1075,36 @@ td {
 
         grid-template-columns:
             1fr 1fr;
-    }
 
+    }
 
     .stats {
 
         grid-template-columns:
             1fr 1fr;
-    }
 
+    }
 
     .dash {
 
         grid-template-columns:
             1fr;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .intro {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
     }
 
 }
@@ -819,15 +1116,15 @@ td {
 
         padding:
             14px;
-    }
 
+    }
 
     .container {
 
         padding:
             18px 12px;
-    }
 
+    }
 
     .searchgrid,
     .stats,
@@ -835,27 +1132,35 @@ td {
 
         grid-template-columns:
             1fr;
-    }
 
+    }
 
     .search button {
 
         width:
             100%;
-    }
 
+    }
 
     .full {
 
         grid-column:
             auto;
-    }
 
+    }
 
     .status {
 
         display:
             none;
+
+    }
+
+    .row {
+
+        grid-template-columns:
+            110px 1fr 40px;
+
     }
 
 }
@@ -874,131 +1179,147 @@ td {
 
 <header>
 
-<div>
+    <div>
 
-<h1>
-கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு
-</h1>
+        <h1>
+            கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு
+        </h1>
 
-<p>
-Karanthaneri Temples &amp; Maintenance Trust (KTM)
-— Member Dashboard
-</p>
+        <p>
+            Karanthaneri Temples &amp; Maintenance Trust (KTM)
+            — Member Dashboard
+        </p>
 
-</div>
+    </div>
 
 
-<div
-class="status"
-id="connection"
->
-● Connecting...
-</div>
-
+    <div
+    class="status"
+    id="connection"
+    >
+        ● Loading...
+    </div>
 
 </header>
 
 
 
-<main class="container">
+<main
+class="container"
+>
 
 
 <!-- =========================================
      INTRO
 ========================================= -->
 
-<section class="intro">
+<section
+class="intro"
+>
 
-<h2>
-Member Directory Dashboard
-</h2>
+    <div>
 
-<div>
-Search using Registration Number,
-part of the Member Name,
-or Mobile Number.
-</div>
+        <h2>
+            Member Directory Dashboard
+        </h2>
+
+        <div>
+            Search using Registration Number,
+            part of the Member Name,
+            or Mobile Number.
+        </div>
+
+    </div>
+
+
+    <!-- NEW MEMBER BUTTON -->
+
+    <button
+    class="add-member"
+    onclick="addNewMember()"
+    >
+        ➕ ADD NEW MEMBER
+    </button>
 
 </section>
 
 
 
 <!-- =========================================
-     SEARCH
+     SEARCH AREA
 ========================================= -->
 
-<section class="search">
-
-<h2>
-🔎 Search KTM Members
-</h2>
-
-
-<div class="searchgrid">
-
-
-<div>
-
-<label>
-🔢 Registration Number
-</label>
-
-<input
-id="reg"
-placeholder="Example: 14"
+<section
+class="search"
 >
 
-</div>
+    <h2>
+        🔎 Search KTM Members
+    </h2>
 
 
+    <div
+    class="searchgrid"
+    >
 
-<div>
+        <div>
 
-<label>
-👤 Member Name (partial search)
-</label>
+            <label>
+                🔢 Registration Number
+            </label>
 
-<input
-id="name"
-placeholder="Example: RAVI"
->
+            <input
+            id="reg"
+            placeholder="Example: 14"
+            >
 
-</div>
-
-
-
-<div>
-
-<label>
-📱 Mobile Number
-</label>
-
-<input
-id="mobile"
-placeholder="Example: 9444301448"
->
-
-</div>
+        </div>
 
 
+        <div>
 
-<button
-onclick="searchMembers()"
->
-SEARCH
-</button>
+            <label>
+                👤 Member Name
+                (partial search)
+            </label>
+
+            <input
+            id="name"
+            placeholder="Example: RAVI"
+            >
+
+        </div>
 
 
-</div>
+        <div>
+
+            <label>
+                📱 Mobile Number
+            </label>
+
+            <input
+            id="mobile"
+            placeholder="Example: 9444301448"
+            >
+
+        </div>
 
 
-<button
-class="clear"
-onclick="clearSearch()"
->
-✕ Clear Search
-</button>
+        <button
+        onclick="searchMembers()"
+        >
+            SEARCH
+        </button>
 
+    </div>
+
+
+    <button
+    class="clear"
+    onclick="clearSearch()"
+    >
+        ✕ Clear Search
+    </button>
 
 </section>
 
@@ -1008,140 +1329,155 @@ onclick="clearSearch()"
      STATISTICS
 ========================================= -->
 
-<section class="stats">
-
-
-<div class="card">
-
-👥
-
-<div
-class="num"
-id="total"
+<section
+class="stats"
 >
-—
-</div>
 
-<div class="label">
-Total Members
-</div>
+    <div
+    class="card"
+    >
 
-</div>
+        👥
 
+        <div
+        class="num"
+        id="total"
+        >
+            —
+        </div>
 
+        <div
+        class="label"
+        >
+            Total Members
+        </div>
 
-<div class="card">
-
-🟢
-
-<div
-class="num"
-id="active"
->
-—
-</div>
-
-<div class="label">
-Active Members
-</div>
-
-</div>
+    </div>
 
 
+    <div
+    class="card"
+    >
 
-<div class="card">
+        🟢
 
-🔴
+        <div
+        class="num"
+        id="active"
+        >
+            —
+        </div>
 
-<div
-class="num"
-id="inactive"
->
-—
-</div>
+        <div
+        class="label"
+        >
+            Active Members
+        </div>
 
-<div class="label">
-Inactive Members
-</div>
-
-</div>
+    </div>
 
 
+    <div
+    class="card"
+    >
 
-<div class="card">
+        🔴
 
-📍
+        <div
+        class="num"
+        id="inactive"
+        >
+            —
+        </div>
 
-<div
-class="num"
-id="locations"
->
-—
-</div>
+        <div
+        class="label"
+        >
+            Inactive Members
+        </div>
 
-<div class="label">
-Distinct Locations
-</div>
+    </div>
 
-</div>
 
+    <div
+    class="card"
+    >
+
+        📍
+
+        <div
+        class="num"
+        id="locations"
+        >
+            —
+        </div>
+
+        <div
+        class="label"
+        >
+            Distinct Locations
+        </div>
+
+    </div>
 
 </section>
 
 
 
 <!-- =========================================
-     DASHBOARD PANELS
+     DASHBOARD BREAKDOWN
 ========================================= -->
 
-<section class="dash">
-
-
-<div class="panel">
-
-<h3>
-📍 Top Member Locations
-</h3>
-
-<div
-id="locs"
+<section
+class="dash"
 >
-Loading...
-</div>
 
-</div>
+    <div
+    class="panel"
+    >
 
+        <h3>
+            📍 Top Member Locations
+        </h3>
 
+        <div
+        id="locs"
+        >
+            Loading...
+        </div>
 
-<div class="panel">
-
-
-<h3>
-📂 Source List Break-up
-</h3>
-
-<div
-id="sources"
->
-Loading...
-</div>
+    </div>
 
 
-<h3
-style="margin-top:25px"
->
-🗺️ Top Districts
-</h3>
 
-<div
-id="districts"
->
-Loading...
-</div>
+    <div
+    class="panel"
+    >
+
+        <h3>
+            📂 Source List Break-up
+        </h3>
+
+        <div
+        id="sources"
+        >
+            Loading...
+        </div>
 
 
-</div>
+        <h3
+        style="margin-top:25px"
+        >
+            🗺️ Top Districts
+        </h3>
 
+        <div
+        id="districts"
+        >
+            Loading...
+        </div>
+
+    </div>
 
 </section>
 
@@ -1153,82 +1489,92 @@ Loading...
 
 <section>
 
+    <div
+    class="resulthead"
+    >
 
-<div class="resulthead">
-
-
-<h2>
-Member Search Results
-</h2>
-
-
-<div
-class="resultcount"
-id="resultcount"
->
-Enter search criteria above.
-</div>
+        <h2>
+            Member Search Results
+        </h2>
 
 
-</div>
+        <div
+        class="resultcount"
+        id="resultcount"
+        >
+            Enter search criteria above.
+        </div>
 
-
-
-<div class="tablewrap">
-
-
-<table>
-
-
-<thead>
-
-<tr>
-
-<th>REG. NO</th>
-
-<th>NAME</th>
-
-<th>LOCATION</th>
-
-<th>DISTRICT</th>
-
-<th>MOBILE</th>
-
-<th>STATUS</th>
-
-<th>VIEW</th>
-
-</tr>
-
-</thead>
+    </div>
 
 
 
-<tbody
-id="tbody"
->
+    <div
+    class="tablewrap"
+    >
 
-<tr>
+        <table>
 
-<td
-colspan="7"
-class="empty"
->
+            <thead>
 
-Please search for a member.
+                <tr>
 
-</td>
+                    <th>
+                        REG. NO
+                    </th>
 
-</tr>
+                    <th>
+                        NAME
+                    </th>
 
-</tbody>
+                    <th>
+                        LOCATION
+                    </th>
+
+                    <th>
+                        DISTRICT
+                    </th>
+
+                    <th>
+                        MOBILE
+                    </th>
+
+                    <th>
+                        STATUS
+                    </th>
+
+                    <th>
+                        ACTIONS
+                    </th>
+
+                </tr>
+
+            </thead>
 
 
-</table>
 
+            <tbody
+            id="tbody"
+            >
 
-</div>
+                <tr>
 
+                    <td
+                    colspan="7"
+                    class="empty"
+                    >
+
+                        Loading...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 </section>
 
@@ -1238,7 +1584,8 @@ Please search for a member.
 
 
 <!-- =========================================
-     MEMBER DETAILS MODAL
+     QUICK VIEW MODAL
+     EXISTING FUNCTIONALITY PRESERVED
 ========================================= -->
 
 <div
@@ -1246,34 +1593,30 @@ class="modal"
 id="modal"
 >
 
-<div
-class="modalbox"
->
+    <div
+    class="modalbox"
+    >
+
+        <button
+        class="close"
+        onclick="closeModal()"
+        >
+            ×
+        </button>
 
 
-<button
-class="close"
-onclick="closeModal()"
->
-×
-</button>
+        <div
+        id="modalcontent"
+        >
+        </div>
 
-
-<div
-id="modalcontent"
->
-</div>
-
-
-</div>
-
+    </div>
 
 </div>
 
 
 
 <script>
-
 
 /* =========================================
    GOOGLE APPS SCRIPT API
@@ -1296,12 +1639,18 @@ function norm(s){
     return String(s ?? "")
         .trim()
         .toLowerCase()
-        .replace(/[^a-z0-9]/g,"");
+        .replace(
+            /[^a-z0-9]/g,
+            ""
+        );
 
 }
 
 
-function val(m,k){
+function val(
+    m,
+    k
+){
 
     if(
         m[k] !== undefined
@@ -1312,17 +1661,27 @@ function val(m,k){
     }
 
 
-    let key =
+    const key =
         Object.keys(m)
         .find(
+
             x =>
-            norm(x) === norm(k)
+
+            norm(x) ===
+            norm(k)
+
         );
 
 
     return key
-        ? m[key] ?? ""
-        : "";
+
+        ?
+
+        m[key] ?? ""
+
+        :
+
+        "";
 
 }
 
@@ -1331,16 +1690,32 @@ function esc(s){
 
     return String(s ?? "")
         .replace(
+
             /[&<>"']/g,
+
             c => (
+
                 {
-                    "&":"&amp;",
-                    "<":"&lt;",
-                    ">":"&gt;",
-                    '"':"&quot;",
-                    "'":"&#039;"
+
+                    "&":
+                    "&amp;",
+
+                    "<":
+                    "&lt;",
+
+                    ">":
+                    "&gt;",
+
+                    '"':
+                    "&quot;",
+
+                    "'":
+                    "&#039;"
+
                 }[c]
+
             )
+
         );
 
 }
@@ -1357,9 +1732,16 @@ function fullname(m){
         val(m,"Name")
 
     ]
+
     .filter(Boolean)
+
     .join(" ")
-    .replace(/\s+/g," ")
+
+    .replace(
+        /\s+/g,
+        " "
+    )
+
     .trim();
 
 }
@@ -1370,11 +1752,19 @@ function badge(status){
     return String(status)
         .trim()
         .toLowerCase()
+
         === "active"
-        ? "active"
-        : "inactive";
+
+        ?
+
+        "active"
+
+        :
+
+        "inactive";
 
 }
+
 
 
 /* =========================================
@@ -1388,11 +1778,16 @@ function breakdown(
 ){
 
     const rows =
-        Object.entries(obj || {})
+
+        Object.entries(
+            obj || {}
+        )
+
         .sort(
             (a,b) =>
             b[1] - a[1]
         )
+
         .slice(
             0,
             limit
@@ -1404,14 +1799,15 @@ function breakdown(
 
 
     document
-        .getElementById(id)
-        .innerHTML =
+    .getElementById(id)
+    .innerHTML =
 
         rows.length
 
         ?
 
         rows.map(
+
             ([name,count]) =>
 
             `
@@ -1421,7 +1817,7 @@ function breakdown(
                 class="name"
                 title="${esc(name)}"
                 >
-                ${esc(name)}
+                    ${esc(name)}
                 </div>
 
 
@@ -1432,7 +1828,8 @@ function breakdown(
                     <div
                     class="fill"
                     style="
-                    width:${100 * count / max}%
+                    width:
+                    ${100 * count / max}%
                     "
                     >
                     </div>
@@ -1443,20 +1840,22 @@ function breakdown(
                 <div
                 class="count"
                 >
-                ${count}
+                    ${count}
                 </div>
-
 
             </div>
             `
 
-        ).join("")
+        )
+
+        .join("")
 
         :
 
         "No data";
 
 }
+
 
 
 /* =========================================
@@ -1472,24 +1871,31 @@ async function loadDashboard(){
 
 
         const response =
-        await fetch(
-            API_URL +
-            "?action=stats"
-        );
+
+            await fetch(
+
+                API_URL +
+                "?action=stats"
+
+            );
 
 
-        if(!response.ok){
+        if(
+            !response.ok
+        ){
 
             throw new Error(
+
                 "HTTP Error " +
                 response.status
+
             );
 
         }
 
 
         const data =
-        await response.json();
+            await response.json();
 
 
         if(
@@ -1497,65 +1903,84 @@ async function loadDashboard(){
         ){
 
             throw new Error(
+
                 data.message ||
+
                 "Unable to load dashboard."
+
             );
 
         }
 
 
         total.textContent =
-        data.totalMembers ?? 0;
+            data.totalMembers ?? 0;
 
 
         active.textContent =
-        data.activeMembers ?? 0;
+            data.activeMembers ?? 0;
 
 
         inactive.textContent =
-        data.inactiveMembers ?? 0;
+            data.inactiveMembers ?? 0;
 
 
         const locationData =
-        data.locations || {};
+            data.locations || {};
 
 
         locations.textContent =
-        Object.keys(
-            locationData
-        ).length;
+
+            Object.keys(
+                locationData
+            )
+
+            .length;
 
 
         breakdown(
+
             "locs",
+
             locationData,
+
             10
+
         );
 
 
         breakdown(
+
             "sources",
+
             data.sources || {},
+
             6
+
         );
 
 
         breakdown(
+
             "districts",
+
             data.districts || {},
+
             6
+
         );
 
 
         connection.textContent =
         "● Member Database Connected";
 
-
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         connection.textContent =
@@ -1572,6 +1997,7 @@ async function loadDashboard(){
 }
 
 
+
 /* =========================================
    MEMBER SEARCH
 ========================================= */
@@ -1579,43 +2005,48 @@ async function loadDashboard(){
 async function searchMembers(){
 
     const regNo =
-    document
-    .getElementById("reg")
-    .value
-    .trim();
+
+        document
+        .getElementById("reg")
+        .value
+        .trim();
 
 
     const memberName =
-    document
-    .getElementById("name")
-    .value
-    .trim();
+
+        document
+        .getElementById("name")
+        .value
+        .trim();
 
 
     const mobileNo =
-    document
-    .getElementById("mobile")
-    .value
-    .trim();
 
-
-    /*
-       Only one search type at a time.
-       Priority:
-       REGISTRATION NUMBER
-       NAME
-       MOBILE NUMBER
-    */
+        document
+        .getElementById("mobile")
+        .value
+        .trim();
 
 
     let type =
-    "";
+        "";
 
     let query =
-    "";
+        "";
 
 
-    if(regNo){
+    /*
+       SEARCH PRIORITY
+
+       1. REGISTRATION NUMBER
+       2. MEMBER NAME
+       3. MOBILE NUMBER
+    */
+
+
+    if(
+        regNo
+    ){
 
         type =
         "reg";
@@ -1625,7 +2056,9 @@ async function searchMembers(){
 
     }
 
-    else if(memberName){
+    else if(
+        memberName
+    ){
 
         type =
         "name";
@@ -1635,7 +2068,9 @@ async function searchMembers(){
 
     }
 
-    else if(mobileNo){
+    else if(
+        mobileNo
+    ){
 
         type =
         "mobile";
@@ -1648,7 +2083,10 @@ async function searchMembers(){
     else{
 
         alert(
-            "Please enter Registration Number, Member Name, or Mobile Number."
+
+            "Please enter Registration Number, " +
+            "Member Name, or Mobile Number."
+
         );
 
         return;
@@ -1665,43 +2103,59 @@ async function searchMembers(){
         tbody.innerHTML =
         `
         <tr>
-        <td
-        colspan="7"
-        class="empty"
-        >
-        Searching Member Database...
-        </td>
+
+            <td
+            colspan="7"
+            class="empty"
+            >
+
+                Searching Member Database...
+
+            </td>
+
         </tr>
         `;
 
 
         const url =
-        API_URL +
-        "?action=search" +
-        "&type=" +
-        encodeURIComponent(type) +
-        "&query=" +
-        encodeURIComponent(query);
+
+            API_URL +
+
+            "?action=search" +
+
+            "&type=" +
+
+            encodeURIComponent(
+                type
+            ) +
+
+            "&query=" +
+
+            encodeURIComponent(
+                query
+            );
 
 
         const response =
-        await fetch(
-            url
-        );
+            await fetch(url);
 
 
-        if(!response.ok){
+        if(
+            !response.ok
+        ){
 
             throw new Error(
+
                 "HTTP Error " +
                 response.status
+
             );
 
         }
 
 
         const data =
-        await response.json();
+            await response.json();
 
 
         if(
@@ -1709,23 +2163,28 @@ async function searchMembers(){
         ){
 
             throw new Error(
+
                 data.message ||
                 "Search failed."
+
             );
 
         }
 
 
         renderResults(
-            data.members || []
-        );
 
+            data.members || []
+
+        );
 
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         resultcount.textContent =
@@ -1735,12 +2194,16 @@ async function searchMembers(){
         tbody.innerHTML =
         `
         <tr>
-        <td
-        colspan="7"
-        class="empty"
-        >
-        Unable to search the Member Database.
-        </td>
+
+            <td
+            colspan="7"
+            class="empty"
+            >
+
+                Unable to search the Member Database.
+
+            </td>
+
         </tr>
         `;
 
@@ -1749,8 +2212,9 @@ async function searchMembers(){
 }
 
 
+
 /* =========================================
-   RENDER RESULTS
+   RENDER SEARCH RESULTS
 ========================================= */
 
 function renderResults(
@@ -1758,115 +2222,211 @@ function renderResults(
 ){
 
     current =
-    members;
+        members;
 
 
     resultcount.textContent =
-    members.length +
-    " member(s) found";
+
+        members.length +
+
+        " member(s) found";
 
 
     tbody.innerHTML =
 
-    members.length
+        members.length
 
-    ?
+        ?
 
-    members.map(
-        (m,index) =>
+        members.map(
+
+            (m,index) =>
+
+            `
+
+            <tr>
+
+
+                <td>
+
+                    ${esc(
+                        val(m,"REG_NO")
+                    )}
+
+                </td>
+
+
+
+                <td
+                class="mname"
+                >
+
+                    ${esc(
+                        fullname(m)
+                    )}
+
+                </td>
+
+
+
+                <td>
+
+                    ${esc(
+                        val(m,"Location")
+                    )}
+
+                </td>
+
+
+
+                <td>
+
+                    ${esc(
+                        val(m,"District")
+                    )}
+
+                </td>
+
+
+
+                <td>
+
+                    ${esc(
+                        val(m,"CELL_NO")
+                    )}
+
+                </td>
+
+
+
+                <td>
+
+                    <span
+                    class="
+                    badge
+                    ${badge(
+                        val(m,"STATUS")
+                    )}
+                    "
+                    >
+
+                        ${esc(
+
+                            val(m,"STATUS") ||
+
+                            "Unknown"
+
+                        )}
+
+                    </span>
+
+                </td>
+
+
+
+                <td>
+
+                    <div
+                    class="action-buttons"
+                    >
+
+
+                        <!-- EXISTING QUICK VIEW -->
+
+                        <button
+                        class="view"
+                        onclick="
+                        viewMember(
+                            ${index}
+                        )
+                        "
+                        >
+
+                            View
+
+                        </button>
+
+
+
+                        <!-- NEW FULL PAGE VIEW -->
+
+                        <button
+                        class="full-view"
+                        onclick="
+                        fullViewMember(
+                            '${String(
+                                val(m,"REG_NO")
+                            )
+                            .replace(
+                                /'/g,
+                                "\\'"
+                            )}'
+                        )
+                        "
+                        >
+
+                            Full View
+
+                        </button>
+
+
+
+                        <!-- NEW UPDATE -->
+
+                        <button
+                        class="update"
+                        onclick="
+                        updateMember(
+                            '${String(
+                                val(m,"REG_NO")
+                            )
+                            .replace(
+                                /'/g,
+                                "\\'"
+                            )}'
+                        )
+                        "
+                        >
+
+                            Update
+
+                        </button>
+
+
+                    </div>
+
+                </td>
+
+
+            </tr>
+
+            `
+
+        )
+
+        .join("")
+
+        :
 
         `
+
         <tr>
 
-        <td>
-        ${esc(val(m,"REG_NO"))}
-        </td>
+            <td
+            colspan="7"
+            class="empty"
+            >
 
+                No matching member found.
 
-        <td
-        class="mname"
-        >
-        ${esc(fullname(m))}
-        </td>
-
-
-        <td>
-        ${esc(val(m,"Location"))}
-        </td>
-
-
-        <td>
-        ${esc(val(m,"District"))}
-        </td>
-
-
-        <td>
-        ${esc(val(m,"CELL_NO"))}
-        </td>
-
-
-        <td>
-
-        <span
-        class="
-        badge
-        ${badge(
-            val(m,"STATUS")
-        )}
-        "
-        >
-
-        ${esc(
-            val(m,"STATUS")
-            || "Unknown"
-        )}
-
-        </span>
-
-        </td>
-
-
-        <td>
-
-        <button
-        class="view"
-        onclick="
-        viewMember(
-            ${index}
-        )
-        "
-        >
-
-        View
-
-        </button>
-
-        </td>
-
+            </td>
 
         </tr>
-        `
 
-    ).join("")
-
-    :
-
-    `
-    <tr>
-
-    <td
-    colspan="7"
-    class="empty"
-    >
-
-    No matching member found.
-
-    </td>
-
-    </tr>
-    `;
+        `;
 
 }
+
 
 
 /* =========================================
@@ -1905,14 +2465,14 @@ function clearSearch(){
     `
     <tr>
 
-    <td
-    colspan="7"
-    class="empty"
-    >
+        <td
+        colspan="7"
+        class="empty"
+        >
 
-    Please search for a member.
+            Please search for a member.
 
-    </td>
+        </td>
 
     </tr>
     `;
@@ -1920,37 +2480,69 @@ function clearSearch(){
 }
 
 
+
 /* =========================================
-   VIEW MEMBER DETAILS
+   EXISTING QUICK VIEW MODAL
 ========================================= */
 
-function viewMember(index){
+function viewMember(
+    index
+){
 
     const m =
-    current[index];
+        current[index];
+
+
+    if(
+        !m
+    ){
+
+        return;
+
+    }
 
 
     const address =
 
-    [
+        [
 
-        val(m,"Door No"),
+            val(
+                m,
+                "Door No"
+            ),
 
-        val(m,"Street Name"),
+            val(
+                m,
+                "Street Name"
+            ),
 
-        val(m,"Area Name"),
+            val(
+                m,
+                "Area Name"
+            ),
 
-        val(m,"Location"),
+            val(
+                m,
+                "Location"
+            ),
 
-        val(m,"District"),
+            val(
+                m,
+                "District"
+            ),
 
-        val(m,"PINCODE")
+            val(
+                m,
+                "PINCODE"
+            )
 
-    ]
+        ]
 
-    .filter(Boolean)
+        .filter(
+            Boolean
+        )
 
-    .join(", ");
+        .join(", ");
 
 
     modalcontent.innerHTML =
@@ -1963,24 +2555,24 @@ function viewMember(index){
     "
     >
 
-    ${esc(
-        fullname(m)
-    )}
+        ${esc(
+            fullname(m)
+        )}
 
     </h2>
 
 
     <p>
 
-    Registration Number:
+        Registration Number:
 
-    <b>
+        <b>
 
-    ${esc(
-        val(m,"REG_NO")
-    )}
+            ${esc(
+                val(m,"REG_NO")
+            )}
 
-    </b>
+        </b>
 
     </p>
 
@@ -1993,165 +2585,134 @@ function viewMember(index){
     >
 
 
-    <div
-    class="detail"
-    >
+        <div
+        class="detail"
+        >
 
-    <b>
-    OLD REG. NO
-    </b>
+            <b>
+                OLD REG. NO
+            </b>
 
-    ${esc(
-        val(
-            m,
-            "OLD_REG_NO"
-        )
-    ) || "—"}
+            ${esc(
+                val(m,"OLD_REG_NO")
+            ) || "—"}
 
-    </div>
+        </div>
 
 
 
-    <div
-    class="detail"
-    >
+        <div
+        class="detail"
+        >
 
-    <b>
-    STATUS
-    </b>
-
-
-    <span
-    class="
-    badge
-    ${badge(
-        val(
-            m,
-            "STATUS"
-        )
-    )}
-    "
-    >
-
-    ${esc(
-        val(
-            m,
-            "STATUS"
-        )
-    )}
-
-    </span>
+            <b>
+                STATUS
+            </b>
 
 
-    </div>
+            <span
+            class="
+            badge
+            ${badge(
+                val(m,"STATUS")
+            )}
+            "
+            >
+
+                ${esc(
+                    val(m,"STATUS")
+                )}
+
+            </span>
+
+        </div>
 
 
 
-    <div
-    class="detail"
-    >
+        <div
+        class="detail"
+        >
 
-    <b>
-    MOBILE NUMBER
-    </b>
+            <b>
+                MOBILE NUMBER
+            </b>
 
+            ${esc(
+                val(m,"CELL_NO")
+            ) || "Not Available"}
 
-    ${esc(
-        val(
-            m,
-            "CELL_NO"
-        )
-    ) || "Not Available"}
-
-
-    </div>
+        </div>
 
 
 
-    <div
-    class="detail"
-    >
+        <div
+        class="detail"
+        >
 
-    <b>
-    PINCODE
-    </b>
+            <b>
+                PINCODE
+            </b>
 
+            ${esc(
+                val(m,"PINCODE")
+            ) || "—"}
 
-    ${esc(
-        val(
-            m,
-            "PINCODE"
-        )
-    ) || "—"}
-
-
-    </div>
+        </div>
 
 
 
-    <div
-    class="
-    detail
-    full
-    "
-    >
+        <div
+        class="
+        detail
+        full
+        "
+        >
 
-    <b>
-    ADDRESS
-    </b>
+            <b>
+                ADDRESS
+            </b>
 
+            ${esc(
+                address
+            ) || "Not Available"}
 
-    ${esc(
-        address
-    ) || "Not Available"}
-
-
-    </div>
+        </div>
 
 
 
-    <div
-    class="detail"
-    >
+        <div
+        class="detail"
+        >
 
-    <b>
-    SOURCE LIST
-    </b>
+            <b>
+                SOURCE LIST
+            </b>
+
+            ${esc(
+                val(m,"SOURCE_LIST")
+            ) || "—"}
+
+        </div>
 
 
-    ${esc(
-        val(
-            m,
-            "SOURCE_LIST"
-        )
-    ) || "—"}
+
+        <div
+        class="detail"
+        >
+
+            <b>
+                REASON / REMARKS
+            </b>
+
+            ${esc(
+                val(m,"REASON")
+            ) || "—"}
+
+        </div>
 
 
     </div>
 
-
-
-    <div
-    class="detail"
-    >
-
-    <b>
-    REASON / REMARKS
-    </b>
-
-
-    ${esc(
-        val(
-            m,
-            "REASON"
-        )
-    ) || "—"}
-
-
-    </div>
-
-
-    </div>
     `;
 
 
@@ -2160,6 +2721,7 @@ function viewMember(index){
     .add("show");
 
 }
+
 
 
 /* =========================================
@@ -2176,10 +2738,10 @@ function closeModal(){
 
 
 modal.onclick =
-function(event){
+function(e){
 
     if(
-        event.target === modal
+        e.target === modal
     ){
 
         closeModal();
@@ -2188,113 +2750,106 @@ function(event){
 
 };
 
+
+
 /* =========================================
-   ALLOW ONLY ONE SEARCH TYPE
+   NEW MEMBER PAGE
 ========================================= */
 
-document.getElementById("reg")
-.addEventListener(
-    "input",
-    function(){
+function addNewMember(){
 
-        if(this.value.trim()){
+    window.location.href =
+    "newmember.html";
 
-            document
-            .getElementById("name")
-            .value = "";
-
-            document
-            .getElementById("mobile")
-            .value = "";
-
-        }
-
-    }
-);
+}
 
 
-document.getElementById("name")
-.addEventListener(
-    "input",
-    function(){
 
-        if(this.value.trim()){
+/* =========================================
+   FULL MEMBER VIEW
+========================================= */
 
-            document
-            .getElementById("reg")
-            .value = "";
+function fullViewMember(
+    regNo
+){
 
-            document
-            .getElementById("mobile")
-            .value = "";
+    window.location.href =
 
-        }
+        "viewmember.html?reg=" +
 
-    }
-);
+        encodeURIComponent(
+            regNo
+        );
+
+}
 
 
-document.getElementById("mobile")
-.addEventListener(
-    "input",
-    function(){
 
-        if(this.value.trim()){
+/* =========================================
+   UPDATE MEMBER
+========================================= */
 
-            document
-            .getElementById("reg")
-            .value = "";
+function updateMember(
+    regNo
+){
 
-            document
-            .getElementById("name")
-            .value = "";
+    window.location.href =
 
-        }
+        "updatemember.html?reg=" +
 
-    }
-);
-      
+        encodeURIComponent(
+            regNo
+        );
+
+}
+
+
+
 /* =========================================
    ENTER KEY SEARCH
 ========================================= */
 
 [
+
     document.getElementById("reg"),
+
     document.getElementById("name"),
+
     document.getElementById("mobile")
+
 ]
 
 .forEach(
 
     input =>
 
-    input.addEventListener(
+        input.addEventListener(
 
-        "keydown",
+            "keydown",
 
-        event => {
+            function(e){
 
-            if(
-                event.key === "Enter"
-            ){
+                if(
+                    e.key === "Enter"
+                ){
 
-                searchMembers();
+                    searchMembers();
+
+                }
 
             }
 
-        }
-
-    )
+        )
 
 );
 
 
+
 /* =========================================
-   START DASHBOARD
+   INITIAL LOAD
 ========================================= */
 
 loadDashboard();
-
 
 </script>
 
