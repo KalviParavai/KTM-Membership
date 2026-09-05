@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Add New KTM Member</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Arial,
+    "Noto Sans Tamil",
+    sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f7ead0,
+        #fffaf0,
+        #ead6a6
+    );
+
+    color:#3b1a10;
+
+}
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #310303,
+        #820d0d,
+        #4a0505
+    );
+
+    color:#ffe39a;
+
+    padding:25px 30px;
+
+    border-bottom:
+    5px solid #f4b942;
+
+}
+
+.container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:35px 20px 60px;
+
+}
+
+.card{
+
+    background:#fffaf0;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 12px 35px
+    rgba(70,35,0,.15);
+
+}
+
+.card h2{
+
+    color:#710a0a;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.field{
+
+    background:#fff;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:
+    1px solid #ead9b7;
+
+}
+
+.field label{
+
+    display:block;
+
+    color:#710a0a;
+
+    font-weight:bold;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+.field input,
+.field textarea,
+.field select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+    1px solid #d7a431;
+
+    border-radius:9px;
+
+    font-size:15px;
+
+}
+
+.field textarea{
+
+    min-height:90px;
+
+}
+
+.info{
+
+    background:#fff1c9;
+
+    border-left:
+    5px solid #e99a19;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:25px;
+
+}
+
+.actions{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+button{
+
+    padding:14px 30px;
+
+    border:0;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+.save{
+
+    background:
+    linear-gradient(
+        #ffe18c,
+        #e99a19
+    );
+
+    color:#4a1800;
+
+}
+
+.cancel{
+
+    background:#6f0909;
+
+    color:white;
+
+    margin-right:10px;
+
+}
+
+@media(max-width:700px){
+
+    .form-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+<h1>
+➕ KTM New Member Registration
+</h1>
+
+<p>
+Karanthaneri Temples &amp; Maintenance Trust
+</p>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+<h2>
+New Membership Entry
+</h2>
+
+
+<div class="info">
+
+Registration Number will automatically be assigned as
+the highest existing REG_NO + 1.
+
+Source will automatically be set to
+<b>ONLINE Entry</b>.
+
+</div>
+
+
+<form
+id="newMemberForm"
+>
+
+<div
+id="formFields"
+class="form-grid"
+>
+Loading membership form...
+</div>
+
+
+<div class="actions">
+
+<button
+type="button"
+class="cancel"
+onclick="
+location.href='dashboard.html'
+"
+>
+Cancel
+</button>
+
+
+<button
+type="submit"
+class="save"
+>
+➕ Add New Member
+</button>
+
+</div>
+
+
+</form>
+
+</div>
+
+</main>
+
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxAtWy9LybpBEN-DYA5veu-0w7vI_VFjJuz2nIhB0uNN-inTuutxUbefByP4DNkFibJLw/exec";
+
+
+let headers =
+[];
+
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        c => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[c]
+    );
+
+}
+
+
+async function loadForm(){
+
+    try{
+
+        const response =
+        await fetch(
+            API_URL +
+            "?action=getheaders"
+        );
+
+
+        const data =
+        await response.json();
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.message
+            );
+
+        }
+
+
+        headers =
+        data.headers;
+
+
+        formFields.innerHTML =
+        headers.map(
+            header => {
+
+                // ==================================
+                // REGISTRATION NUMBER AUTO
+                // ==================================
+
+                if(
+                    header === "REG_NO"
+                ){
+
+                    return `
+
+                    <div class="field">
+
+                    <label>
+                    REG_NO
+                    </label>
+
+                    <input
+                    value="Automatically Generated"
+                    disabled
+                    >
+
+                    </div>
+
+                    `;
+
+                }
+
+
+                // ==================================
+                // SOURCE AUTO
+                // ==================================
+
+                if(
+
+                    header === "SOURCE"
+
+                    ||
+
+                    header === "SOURCE_LIST"
+
+                ){
+
+                    return `
+
+                    <div class="field">
+
+                    <label>
+                    ${esc(header)}
+                    </label>
+
+                    <input
+                    value="ONLINE Entry"
+                    disabled
+                    >
+
+                    </div>
+
+                    `;
+
+                }
+
+
+                // ==================================
+                // STATUS
+                // ==================================
+
+                if(
+                    header === "STATUS"
+                ){
+
+                    return `
+
+                    <div class="field">
+
+                    <label>
+                    STATUS
+                    </label>
+
+                    <select
+                    name="STATUS"
+                    >
+
+                    <option
+                    value="ACTIVE"
+                    selected
+                    >
+                    ACTIVE
+                    </option>
+
+                    <option
+                    value="INACTIVE"
+                    >
+                    INACTIVE
+                    </option>
+
+                    </select>
+
+                    </div>
+
+                    `;
+
+                }
+
+
+                // ==================================
+                // LONG TEXT FIELDS
+                // ==================================
+
+                if(
+
+                    header
+                    .toUpperCase()
+                    .includes(
+                        "REMARK"
+                    )
+
+                    ||
+
+                    header
+                    .toUpperCase()
+                    .includes(
+                        "ADDRESS"
+                    )
+
+                    ||
+
+                    header
+                    .toUpperCase()
+                    .includes(
+                        "REASON"
+                    )
+
+                ){
+
+                    return `
+
+                    <div class="field">
+
+                    <label>
+                    ${esc(header)}
+                    </label>
+
+                    <textarea
+                    name="${esc(header)}"
+                    ></textarea>
+
+                    </div>
+
+                    `;
+
+                }
+
+
+                return `
+
+                <div class="field">
+
+                <label>
+                ${esc(header)}
+                </label>
+
+                <input
+                name="${esc(header)}"
+                >
+
+                </div>
+
+                `;
+
+            }
+
+        ).join("");
+
+    }
+
+    catch(error){
+
+        formFields.innerHTML =
+        "Unable to load membership form.";
+
+    }
+
+}
+
+
+newMemberForm.addEventListener(
+
+    "submit",
+
+    async function(event){
+
+        event.preventDefault();
+
+
+        if(
+
+            !confirm(
+                "Add this new member?"
+            )
+
+        ){
+
+            return;
+
+        }
+
+
+        const formData =
+        new FormData(
+            newMemberForm
+        );
+
+
+        let member =
+        {};
+
+
+        for(
+            const [key,value]
+            of formData.entries()
+        ){
+
+            member[key] =
+            value;
+
+        }
+
+
+        try{
+
+            const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:
+                    "POST",
+
+                    body:
+                    JSON.stringify({
+
+                        action:
+                        "addmember",
+
+                        member:
+                        member
+
+                    })
+
+                }
+            );
+
+
+            const data =
+            await response.json();
+
+
+            if(!data.success){
+
+                throw new Error(
+                    data.message
+                );
+
+            }
+
+
+            alert(
+
+                "New member added successfully.\n\n" +
+
+                "Registration Number: " +
+
+                data.regNo
+
+            );
+
+
+            location.href =
+            "dashboard.html";
+
+        }
+
+        catch(error){
+
+            alert(
+                error.message
+                ||
+                "Unable to add new member."
+            );
+
+        }
+
+    }
+
+);
+
+
+loadForm();
+
+</script>
+
+</body>
+</html>
