@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Update KTM Member</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Arial,
+    "Noto Sans Tamil",
+    sans-serif;
+
+    background:#f7ead0;
+
+    color:#3b1a10;
+
+}
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #310303,
+        #820d0d,
+        #4a0505
+    );
+
+    padding:20px 30px;
+
+    color:#ffe39a;
+
+    border-bottom:
+    4px solid #f4b942;
+
+}
+
+.container{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:30px 20px;
+
+}
+
+.form-card{
+
+    background:#fffaf0;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(60,30,0,.12);
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.field label{
+
+    display:block;
+
+    font-weight:bold;
+
+    color:#710a0a;
+
+    margin-bottom:7px;
+
+}
+
+.field input,
+.field select,
+.field textarea{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    border:
+    1px solid #d7a431;
+
+    font-size:15px;
+
+}
+
+.field textarea{
+
+    min-height:100px;
+
+}
+
+.actions{
+
+    margin-top:30px;
+
+    text-align:center;
+
+}
+
+button{
+
+    padding:14px 28px;
+
+    border:0;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.save{
+
+    background:
+    linear-gradient(
+        #ffe18c,
+        #e99a19
+    );
+
+}
+
+.cancel{
+
+    background:#6f0909;
+
+    color:#fff;
+
+    margin-right:10px;
+
+}
+
+@media(max-width:700px){
+
+    .form-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+✏ Update KTM Member
+</h1>
+
+</header>
+
+
+<main class="container">
+
+<div class="form-card">
+
+<h2>
+Member Information
+</h2>
+
+<form
+id="memberForm"
+>
+
+<div
+class="form-grid"
+id="formFields"
+>
+Loading member information...
+</div>
+
+
+<div class="actions">
+
+<button
+type="button"
+class="cancel"
+onclick="history.back()"
+>
+Cancel
+</button>
+
+
+<button
+type="submit"
+class="save"
+>
+💾 Update Member
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</main>
+
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxAtWy9LybpBEN-DYA5veu-0w7vI_VFjJuz2nIhB0uNN-inTuutxUbefByP4DNkFibJLw/exec";
+
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+
+const regNo =
+params.get(
+    "regNo"
+);
+
+
+let headers =
+[];
+
+
+function esc(value){
+
+    return String(value ?? "")
+    .replace(
+        /[&<>"']/g,
+        c => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[c]
+    );
+
+}
+
+
+async function loadMember(){
+
+    const response =
+    await fetch(
+
+        API_URL +
+
+        "?action=getmember" +
+
+        "&regNo=" +
+
+        encodeURIComponent(
+            regNo
+        )
+
+    );
+
+
+    const data =
+    await response.json();
+
+
+    if(!data.success){
+
+        alert(
+            data.message
+        );
+
+        return;
+
+    }
+
+
+    const member =
+    data.member;
+
+
+    headers =
+    Object.keys(
+        member
+    );
+
+
+    formFields.innerHTML =
+    headers.map(
+        header => {
+
+            const value =
+            member[header] ?? "";
+
+
+            // STATUS DROPDOWN
+
+            if(
+                header === "STATUS"
+            ){
+
+                return `
+
+                <div class="field">
+
+                <label>
+                STATUS
+                </label>
+
+                <select
+                name="STATUS"
+                >
+
+                <option
+                value="ACTIVE"
+                ${
+                    String(value)
+                    .toUpperCase()
+                    === "ACTIVE"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+                >
+                ACTIVE
+                </option>
+
+                <option
+                value="INACTIVE"
+                ${
+                    String(value)
+                    .toUpperCase()
+                    === "INACTIVE"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+                >
+                INACTIVE
+                </option>
+
+                </select>
+
+                </div>
+
+                `;
+
+            }
+
+
+            // REGISTRATION NUMBER LOCKED
+
+            if(
+                header === "REG_NO"
+            ){
+
+                return `
+
+                <div class="field">
+
+                <label>
+                ${esc(header)}
+                </label>
+
+                <input
+                name="${esc(header)}"
+                value="${esc(value)}"
+                readonly
+                >
+
+                </div>
+
+                `;
+
+            }
+
+
+            // LONG TEXT FIELDS
+
+            if(
+                String(value).length > 80
+                ||
+                header
+                .toUpperCase()
+                .includes("REMARK")
+                ||
+                header
+                .toUpperCase()
+                .includes("ADDRESS")
+            ){
+
+                return `
+
+                <div class="field">
+
+                <label>
+                ${esc(header)}
+                </label>
+
+                <textarea
+                name="${esc(header)}"
+                >${esc(value)}</textarea>
+
+                </div>
+
+                `;
+
+            }
+
+
+            return `
+
+            <div class="field">
+
+            <label>
+            ${esc(header)}
+            </label>
+
+            <input
+            name="${esc(header)}"
+            value="${esc(value)}"
+            >
+
+            </div>
+
+            `;
+
+        }
+
+    ).join("");
+
+}
+
+
+memberForm.addEventListener(
+
+    "submit",
+
+    async function(event){
+
+        event.preventDefault();
+
+
+        if(
+
+            !confirm(
+                "Update this member record?"
+            )
+
+        ){
+
+            return;
+
+        }
+
+
+        const formData =
+        new FormData(
+            memberForm
+        );
+
+
+        let member =
+        {};
+
+
+        for(
+            const [key,value]
+            of formData.entries()
+        ){
+
+            member[key] =
+            value;
+
+        }
+
+
+        try{
+
+            const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:
+                    "POST",
+
+                    body:
+                    JSON.stringify({
+
+                        action:
+                        "update",
+
+                        member:
+                        member
+
+                    })
+
+                }
+            );
+
+
+            const data =
+            await response.json();
+
+
+            if(!data.success){
+
+                throw new Error(
+                    data.message
+                );
+
+            }
+
+
+            alert(
+                "Member updated successfully."
+            );
+
+
+            location.href =
+            "dashboard.html";
+
+        }
+
+        catch(error){
+
+            alert(
+                error.message
+                ||
+                "Unable to update member."
+            );
+
+        }
+
+    }
+
+);
+
+
+loadMember();
+
+</script>
+
+</body>
+</html>
