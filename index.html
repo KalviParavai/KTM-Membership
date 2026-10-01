@@ -829,8 +829,27 @@ function login() {
                 result.success === true
             ) {
 
-                window.location.href =
-                    "dashboard.html";
+                if (username.toLowerCase() === "admin") {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }
+
+                else if (username.toLowerCase() === "report") {
+
+                    window.location.href =
+                        "report.html";
+
+                }
+
+                else {
+
+                    alert(
+                        "Login successful, but no portal is assigned to this user."
+                    );
+
+                }
 
             }
 
