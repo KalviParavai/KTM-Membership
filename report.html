@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KTM Trust - Reports</title>
+a
+<style>
+
+/* =========================================
+   GLOBAL SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "Noto Sans Tamil", sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #fff7e6, #f1e2c5 65%, #dcc59a);
+    color: #4a3824;
+}
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.top-header {
+    text-align: center;
+    padding: 20px;
+    background:
+        linear-gradient(
+            180deg,
+            #fffdf8,
+            #f3eadb
+        );
+}
+
+.top-header h2 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: #5b3a1d;
+}
+
+.top-header p {
+    margin-top: 5px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #8a6a3d;
+}
+
+/* =========================================
+   TOP HERO IMAGE
+========================================= */
+
+.hero-banner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #c9a24d;
+    border-bottom: 3px solid #c9a24d;
+    background: #e8d5a8;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,248,225,0.03) 40%,
+            rgba(100,70,25,0.10) 65%,
+            rgba(60,40,15,0.60) 100%
+        );
+    pointer-events: none;
+}
+
+.banner-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 22px 30px 28px;
+    text-align: center;
+    z-index: 5;
+    background:
+        linear-gradient(
+            to top,
+            rgba(70,45,15,0.78),
+            rgba(100,70,25,0.30),
+            transparent
+        );
+}
+
+.banner-title h1 {
+    width: 100%;
+    font-size: clamp(26px, 3vw, 58px);
+    font-weight: bold;
+    color: #fffdf6;
+    white-space: nowrap;
+    text-shadow:
+        0 3px 8px #3b260f,
+        0 0 18px rgba(255,220,120,0.35);
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   MAIN CONTENT AREA
+========================================= */
+
+.main-section {
+    position: relative;
+    min-height: 500px;
+    padding: 70px 20px 90px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,181,115,0.35),
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            #fff9eb,
+            #eadcc2 80%
+        );
+    text-align: center;
+    border-top: 3px solid #c9a24d;
+}
+
+/* =========================================
+   DECORATIVE GOLD LINE
+========================================= */
+
+.gold-line {
+    width: 230px;
+    height: 2px;
+    margin: 15px auto 25px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #c99b3c,
+            #f6df9b,
+            #c99b3c,
+            transparent
+        );
+    position: relative;
+}
+
+.gold-line::before {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    color: #b8862d;
+    background: #f3e7d1;
+    padding: 0 12px;
+    font-size: 20px;
+}
+
+/* =========================================
+   TEMPLE ICON
+========================================= */
+
+.temple-icon {
+    width: 75px;
+    height: 75px;
+    margin: -40px auto 20px;
+    border-radius: 50%;
+    background:
+        linear-gradient(145deg, #f7e6bd, #d9bb79);
+    border: 2px solid #c89a3b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    color: #8a641e;
+    position: relative;
+    z-index: 5;
+    box-shadow:
+        0 0 20px rgba(170,125,35,0.30);
+}
+
+.subtitle {
+    margin-top: 15px;
+    color: #6b5132;
+    font-size: 16px;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* =========================================
+   REPORT CARD
+========================================= */
+
+.report-card {
+    width: 100%;
+    max-width: 700px;
+    margin: 45px auto 0;
+    padding: 30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,252,243,0.95),
+            rgba(239,225,195,0.98)
+        );
+    border: 2px solid #c9a24d;
+    border-radius: 18px;
+    box-shadow:
+        0 15px 40px rgba(80,60,30,0.20),
+        inset 0 0 30px rgba(200,160,60,0.08);
+}
+
+.report-card h2 {
+    color: #5b3a1d;
+    margin-bottom: 10px;
+}
+
+.report-card p {
+    color: #6b5132;
+    margin-bottom: 25px;
+}
+
+.report-button {
+    width: 100%;
+    min-height: 62px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #4b3514;
+    background:
+        linear-gradient(
+            180deg,
+            #f5d36d,
+            #dca535
+        );
+    box-shadow:
+        0 7px 18px rgba(100,70,20,0.25);
+    transition: 0.3s;
+}
+
+.report-button:hover {
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            180deg,
+            #f9e29a,
+            #e6b64e
+        );
+    box-shadow:
+        0 10px 25px rgba(100,70,20,0.30);
+}
+
+.report-button:active {
+    transform: translateY(1px);
+}
+
+.report-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+}
+
+.report-status {
+    min-height: 24px;
+    margin-top: 20px;
+    color: #6b5132;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 40px;
+    color: rgba(90,65,30,0.65);
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .top-header h2 {
+        font-size: 22px;
+    }
+
+    .top-header p {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .hero-banner {
+        min-height: 250px;
+    }
+
+    .hero-banner img {
+        min-height: 250px;
+        object-fit: cover;
+    }
+
+    .banner-title {
+        padding: 15px 10px 18px;
+    }
+
+    .banner-title h1 {
+        font-size: clamp(15px, 4.2vw, 28px);
+    }
+
+    .main-section {
+        padding: 55px 15px 70px;
+    }
+
+    .report-card {
+        padding: 22px 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="top-header">
+    <h2>KTM Trust</h2>
+    <p>KARANTHANERI TEMPLES MAINTENANCE TRUST, TIRUNELVELI</p>
+</header>
+
+<section class="hero-banner">
+    <img src="god-heroimage.png" alt="Temple Deities">
+    <div class="banner-title">
+        <h1>கரந்தாநேரி திருக்கோவில்கள் பராமரிப்புக் குழு</h1>
+    </div>
+</section>
+
+<section class="main-section">
+
+    <div class="temple-icon">🛕</div>
+
+    <div class="gold-line"></div>
+
+    <div class="subtitle">
+        Karanthaneri Temples &amp; Maintenance Trust (KTM) — Reports
+    </div>
+
+    <div class="report-card">
+        <h2>Member Reports</h2>
+        <p>Generate A4 postal address slips from the current membership database.</p>
+
+        <button
+            class="report-button"
+            id="activeButton"
+            onclick="generateMemberPDF('Active')"
+        >
+            📄 ACTIVE MEMBERS LIST
+        </button>
+
+        <button
+            class="report-button"
+            id="inactiveButton"
+            onclick="generateMemberPDF('Inactive')"
+        >
+            📄 INACTIVE MEMBERS LIST
+        </button>
+
+        <div class="report-status" id="status"></div>
+    </div>
+
+    <div class="gold-line"></div>
+
+    <div class="footer">© KTM Portal</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<script>
+
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbxAtWy9LybpBEN-DYA5veu-0w7vI_VFjJuz2nIhB0uNN-inTuutxUbefByP4DNkFibJLw/exec";
+
+function val(member, key) {
+    if (member[key] !== undefined) {
+        return member[key] ?? "";
+    }
+
+    const wanted = String(key)
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "");
+
+    const found = Object.keys(member).find(function(k) {
+        return String(k)
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, "") === wanted;
+    });
+
+    return found ? (member[found] ?? "") : "";
+}
+
+function fullname(member) {
+    return [
+        val(member, "Title"),
+        val(member, "Initial"),
+        val(member, "Name")
+    ]
+    .filter(function(v) {
+        return String(v).trim() !== "";
+    })
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function setButtons(disabled) {
+    document.getElementById("activeButton").disabled = disabled;
+    document.getElementById("inactiveButton").disabled = disabled;
+}
+
+/* =========================================
+   LOAD ALL MEMBERS USING JSONP
+========================================= */
+
+function loadAllMembers() {
+    return new Promise(function(resolve, reject) {
+
+        const callbackName =
+            "reportCallback_" + Date.now();
+
+        const script =
+            document.createElement("script");
+
+        const timer =
+            setTimeout(function() {
+                cleanup();
+                reject(new Error("The Member Database did not respond."));
+            }, 30000);
+
+        function cleanup() {
+            clearTimeout(timer);
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+            delete window[callbackName];
+        }
+
+        window[callbackName] = function(result) {
+            cleanup();
+
+            if (result && result.success === true) {
+                resolve(result.members || []);
+            } else {
+                reject(new Error(
+                    (result && result.message) ||
+                    "Unable to load member records."
+                ));
+            }
+        };
+
+        script.onerror = function() {
+            cleanup();
+            reject(new Error("Unable to connect to the Member Database."));
+        };
+
+        script.src =
+            API_URL +
+            "?action=search" +
+            "&type=name" +
+            "&query=" +
+            "&callback=" +
+            callbackName;
+
+        document.body.appendChild(script);
+    });
+}
+
+/* =========================================
+   GENERATE ACTIVE / INACTIVE PDF
+========================================= */
+
+async function generateMemberPDF(status) {
+
+    setButtons(true);
+
+    const statusElement = document.getElementById("status");
+    statusElement.textContent =
+        "Loading " + status.toLowerCase() + " members...";
+
+    try {
+
+        const allMembers = await loadAllMembers();
+
+        let members = allMembers.filter(function(member) {
+            return String(val(member, "STATUS"))
+                .trim()
+                .toLowerCase() === status.toLowerCase();
+        });
+
+        /* A-Z by member name */
+        members.sort(function(a, b) {
+            return String(val(a, "Name"))
+                .trim()
+                .localeCompare(
+                    String(val(b, "Name"))
+                        .trim(),
+                    undefined,
+                    { sensitivity: "base" }
+                );
+        });
+
+        if (members.length === 0) {
+            throw new Error(
+                "No " + status.toLowerCase() + " members found."
+            );
+        }
+
+        const jsPDF = window.jspdf.jsPDF;
+
+        const pdf = new jsPDF({
+            orientation: "portrait",
+            unit: "mm",
+            format: "a4"
+        });
+
+        const pageWidth = 210;
+        const pageHeight = 297;
+
+        /* Same measurements used for the existing address-slip layout. */
+        const leftX = 15;
+        const rightX = 112;
+        const columnWidth = 83;
+        const topMargin = 16;
+        const slipHeight = 43;
+        const lineHeight = 5;
+
+        let y = topMargin;
+        let column = 0;
+
+        function addAddressSlip(member, slNo, x, yPos) {
+
+            const regNo = val(member, "REG_NO");
+            const name = fullname(member);
+
+            /* Address-slip boundary. */
+            const boxX = column === 0 ? 10 : 105;
+            pdf.setDrawColor(0, 0, 0);
+            pdf.setLineWidth(0.25);
+            pdf.rect(boxX, yPos - 4, 95, slipHeight);
+
+            /* HEADER */
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(10);
+            pdf.text(
+                "Sl. No " + slNo + "    ID " + regNo,
+                x,
+                yPos
+            );
+
+            /* MEMBER NAME */
+            pdf.setFontSize(11);
+            pdf.text(name, x, yPos + lineHeight);
+
+            /* ADDRESS LINES */
+            const addressLines = [
+                val(member, "Door No"),
+                val(member, "Street Name"),
+                val(member, "Area Name"),
+                val(member, "Location"),
+                val(member, "District")
+            ]
+            .map(function(item) {
+                return String(item || "").trim();
+            })
+            .filter(Boolean);
+
+            let lineY = yPos + (lineHeight * 2);
+
+            pdf.setFont("helvetica", "normal");
+            pdf.setFontSize(10);
+
+            addressLines.forEach(function(line) {
+                const wrapped = pdf.splitTextToSize(line, columnWidth);
+
+                wrapped.forEach(function(textLine) {
+                    if (lineY < yPos + slipHeight - 7) {
+                        pdf.text(textLine, x, lineY);
+                        lineY += lineHeight;
+                    }
+                });
+            });
+
+            /* PIN CODE */
+            const pinCode = val(member, "PINCODE");
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(10);
+            pdf.text(
+                "Pin Code - " + pinCode,
+                x,
+                yPos + slipHeight - 3
+            );
+        }
+
+        members.forEach(function(member, index) {
+
+            const slNo = index + 1;
+            const x = column === 0 ? leftX : rightX;
+
+            addAddressSlip(member, slNo, x, y);
+
+            if (column === 0) {
+                column = 1;
+            } else {
+                column = 0;
+                y += slipHeight;
+
+                if (y + slipHeight > pageHeight - 12) {
+                    pdf.addPage();
+                    y = topMargin;
+                }
+            }
+        });
+
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const yyyy = today.getFullYear();
+        const datePart = dd + mm + yyyy;
+
+        const fileName =
+            status.toLowerCase() === "active"
+                ? "activemembers" + datePart + ".pdf"
+                : "inactivemembers" + datePart + ".pdf";
+
+        pdf.save(fileName);
+
+        statusElement.textContent =
+            members.length +
+            " " +
+            status.toLowerCase() +
+            " members generated: " +
+            fileName;
+
+    } catch (error) {
+
+        console.error(error);
+        statusElement.textContent =
+            error.message ||
+            "Unable to generate the report.";
+
+        alert(
+            error.message ||
+            "Unable to generate the report."
+        );
+
+    } finally {
+        setButtons(false);
+    }
+}
+
+</script>
+
+</body>
+</html>
